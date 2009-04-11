@@ -1,0 +1,40 @@
+IDLE IDE
+lib/idlelib/idle.pyw
+
+
+f
+Quick Launch 2
+
+
+
+
+Quick Launch 3
+
+
+
+
+Quick Launch 4
+
+
+
+
+Quick Launch 5
+
+
+
+
+Quick Launch 6
+
+
+
+
+Quick Launch 7
+
+
+
+
+Quick Launch 8
+
+
+
+

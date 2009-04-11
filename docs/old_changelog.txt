@@ -1,0 +1,202 @@
+restindex
+   crumb: Old Changelog
+   tags:  old, changelog, previous, versions, history
+   include: no
+/restindex
+
+=========================================
+ The Old Changelog - A Look Into History
+=========================================
+-------------------------------------------------
+ Changelog for Early Versions of Movable Python
+-------------------------------------------------
+
+.. image:: images/movpy.gif
+   :height: 128
+   :width: 128
+   :alt: Python on a Stick
+   :class: image
+   :align: center
+
+
+.. contents::
+
+Introduction
+============
+
+This is the changelog for the early versions of **Movable Python**. It shows the development of Movable Python from an interesting experiment, into a useful tool. More details on the people involved can be found in `CREDITS <CREDITS.html>`_.
+
+
+CHANGELOG
+=========
+
+2005/03/28      Version 0.4.7
+-----------------------------
+
+No longer print tracebacks for ``sys.exit``.
+
+SPE 0.7.3 is now used.
+
+IPython 0.6.12
+
+
+2005/02/07      Version 0.4.6
+-----------------------------
+
+Movpy Icon and image added by Aidan Ashby - 
+`www.nebulae.org.uk <http://www.nebulae.org.uk>`_
+
+We use exec rather than eval (which shouldn't be used with `multiple statement 
+code objects`).
+
+IPython isn't called if ``-p`` is on, psyco and IPython don't play well
+together.
+
+IPython won't be called if ``psyco.full()`` has been called in your script.
+
+Fixed a bug in Python 2.2 support - ``exclude_modules`` now works !
+
+Forced package import for encodings. SPE now works with python 2.2 - but still
+'experimental'.
+
+Icon is now used in python 2.2
+
+The pre-built environments use newer versions of readline, IPython, and
+SPE.
+
+
+2005/01/17      Version 0.4.5
+-----------------------------
+
+Make sure multi-line statements we compile terminate in ``'\n'``. (Fixes a bug
+when run in Python 2.2)
+
+Removed the 'module_extensions' keyword.
+
+Added logging using `StandOut <http://www.voidspace.org.uk/python/standout.html>`_ and the 'logfile' keyword.  
+
+Module exclusion now works with py2exe.
+
+Added the optimize and compressed keywords. (not relevant to Python 2.2)
+
+Fixed ``sys.winver``.
+
+Added the 'build_full' and removed the 'include_dirs' keywords (greatly 
+simplified the 'search path' code in PyDistFreeze.py).
+
+Identified problems with pywin32 with help from Brian Beck (``del sys.frozen``
+sometimes useful !).
+
+Added code to build environments with win32com - see 
+http://starship.python.net/crew/theller/moin.cgi/WinShell
+
+The 'lib/' directory is now in sys.path when entering interactive mode 
+immediately (bug spotted by Bruno).
+
+Distribution description includes the version of python. 
+
+2005/01/02      Version 0.4.4
+-----------------------------
+
+When not using IPython, interactive() will find locals() for itself. (Meaning interactive() can be called in user scripts).
+
+Added the 'manuals' folder to the distribution.
+
+Added the ``-p`` command line option, to switch on psyco.
+
+Switched to using compile/eval rather than exec/execfile. (Better for psyco *and* more meaningful error messages)
+
+A fix so that errors will report the right line number with '``-x``'.
+
+Changed config file to include winsound and unicodedata.
+
+Modifications to PyDistFreeze.py and movpy.py to make them compatible with python 2.2.
+
+A built in 'setup.py' for python 2.2. (can now autobuild distributions on python 2.2)
+
+IPython should now work on machines that don't have it installed ! (ipythondir is now set and config file supplied)
+
+If you don't select a file from the GUI, it now drops into interactive mode.
+
+Can supply path to config.txt in command line to PyDistFreeze.py
+
+Tweaked the directory finding function - which finds directories we will search.
+
+Fixed it so that movpyw doesn't generate error logs with '-' if launched from GUI with no file.
+
+IDLE now works, so added idle.bat.
+
+2004/12/31      Version 0.4.3
+-----------------------------
+
+Support for IPython as alternative interactive shell.
+
+External config file ('config.txt' in 'lib/' directory) - for setting default 
+command line options.
+
+Added 'credits' and 'copyrights' as builtins (for IPython).
+
+2004/12/29      Version 0.4.2
+-----------------------------
+
+Added support for command line arguments -h, -V, -u, -i, -x, -, -c (hey that's a lot for one evening  !)
+
+The main script 'movpy.py' is now kept in an external file.
+
+'include_modules' now supports sub-packages.
+
+Added back support for encodings.
+
+packagepaths.pth added for sub-package support with 'include_packages'. 
+
+2004/12/28      Version 0.4.1
+-----------------------------
+
+Lots of changes , they include :
+
+* addition of customize.py
+* addition of syspaths.pth
+* Cleans up intermediate files.
+* Copies packages properly
+* Only copies the microsoft Visual C 7 dlls if built with Python 2.4
+* Addition of unicows dll is optional
+* Addition of spe.bat
+* Builds the windows version - movpyw.exe
+* Added the manifest files
+* Added the build option
+
+2004/12/19      Version 0.4
+-----------------------------
+
+Some additions by Bruno Thoorens. They include :
+
+* Lightweight GUI frontend added to movpy.exe
+* setup.py incorporated into main script - name changes to PyDistFreeze.py
+* Icon added
+
+2004/12/18      Version 0.3
+---------------------------
+
+More work with Stani.
+
+* '.pth' files now supported
+* Importing from '.pyc' etc. as well as straight '.py' files
+* Added external config file, using `ConfigObj <http://www.voidspace.org.uk/python/configobj.html>`_
+
+2004/12/17      Version 0.2
+---------------------------
+
+Renamed 'Movable Python'. (Executable is 'movpy.exe')
+
+Cleaned up a lot - now imports subpackages properly.
+
+Thanks to Stani of SPE for encouragement and suggestions. (including the name)
+
+2004/12/14      Version 0.1
+---------------------------
+
+Test version called 'testenv' - Python test environment.
+
+Works better than expected.
+
+Thanks to Bruno Thoorens and Stani for help and debugging.

@@ -1,0 +1,103 @@
+restindex
+    crumb: Interpreters
+    page-description:
+        How to configure Movable Python and use it with multiple interpreters. This can include installed versions of Python or any executable.
+    /description
+/restindex
+
+==========================================
+ Movable Python and Multiple Interpreters
+==========================================
+--------------------------
+ Configuring Interpreters
+--------------------------
+
+.. image:: ../images/movpy.gif
+   :height: 128
+   :width: 128
+   :alt: Python on a Stick
+   :class: image
+   :align: center
+
+.. contents:: Movable Python and Interpreters
+
+Introduction
+============
+
+.. image:: ../images/multiple_interpreters.jpg
+   :height: 194
+   :width: 428
+   :alt: Multiple Interpreters
+   :class: image
+   :align: center
+   
+**Movable Python** can be configured to use several different interpreters. You can configure Movable Python to use any executable program as an interpreter. This includes installed versions of Python, `IronPython <http://www.codeplex.com/IronPython>`_, or any other program.
+
+Having configured your interpreters, you select the interpreter you want to use from the drop down list in the *Interpreter* menu.
+
+The selected interpreter will be used to launch all programs. This means that Movable Python can act as a GUI front end for any program.
+
+The '>>>' button will launch the interactive interpreter for the selected interpreter.
+
+Currently the interpreter selection is *not* used for programs launched using the `Quick Launch <quick_launch.html>`_ buttons or for the IDE button.
+
+
+Consoles
+--------
+
+When running programs, Movable Python can use the right executable for your console options for Movable Python interpreters, Python interpreters and IronPython.
+
+For Movable Python the executables ``movpy.exe`` and ``movpyw.exe`` must be in the same directory.
+
+For IronPython the executables ``ipy.exe`` and ``ipyw.exe`` must be in the same directory.
+
+For Movable Python and normal Python interpreters, Movable Python knows which options it can use. For example, for Python the command line option ``-i``, ``-x`` and ``-u`` are valid. ``-f`` and ``-b`` are used for all interpreters.
+
+
+Configuring Interpreters
+========================
+
+.. image:: ../images/configure_interpreters.jpg
+   :height: 270
+   :width: 426
+   :alt: Configure Interpreters
+   :class: image
+   :align: center
+
+To configure new interpreters with Movable Python, or edit existing ones, select the *Configure -> Interpreters* menu option. This brings up the configure dialog show above.
+
+Click on *New* to create a new interpreter entry, or select a radio button from the left to edit an existing entry.
+
+You can then choose an executable or batch file to be the new interpreter. You can even choose a Python script to be an interpreter. This allows you to use scripts like code quality tools, which take a filename as their argument, as Movable Python 'interpreters'. Python files setup as interpreters will be run with the default interpreter.
+
+If your interpreter executable needs command line arguments *before* the filename, you can do this using quotes in the 'Executable' text box :
+
+    ``"C:\Path\executable.exe" arg1 arg2``
+    
+(Quotes are *not* needed just because a path has spaces in it. Movable Python will handle this.)
+
+Having edited an entry you must save it, using *Save Entry* in order to preserve your changes.
+
+The *Register* button is used to setup an installed version of Python as an interpreter, see below.
+
+
+Using Installed Python
+======================
+
+.. image:: ../images/register_interpreters.jpg
+   :height: 305
+   :width: 251
+   :alt: Register an Installed Python
+   :class: image
+   :align: center
+   
+Movable Python can detect installed versions of Python and register them as interpreters.
+
+* Create a new entry
+* Click the *Register* button
+* Select the installed Python to register
+* Click Ok
+* Save the entry
+
+{sm;:-)}
+ 

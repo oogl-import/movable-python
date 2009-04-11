@@ -1,0 +1,35 @@
+restindex
+    crumb: Current Directory
+    page-description:
+        Setting a specific directory to run scripts in.
+    /description
+/restindex
+
+================================
+ Choosing the Current Directory
+================================
+
+.. image:: ../images/movpy.gif
+   :height: 128
+   :width: 128
+   :alt: Python on a Stick
+   :class: image
+   :align: center
+
+Configuring the Current Directory
+=================================
+
+.. image:: ../images/current_directory.jpg
+   :height: 141
+   :width: 255
+   :alt: The Current Directory Dialog
+   :class: image
+   :align: center
+
+Ok, so this dialog is so simple it barely warrants its own page. {sm;:-)}
+
+Normally scripts will run in the current directory, or the directory they live in if you have the ``-f`` option set.
+
+Sometimes you need to be able to specify the directory that scripts run in; this is the dialog to do it.
+
+Leave the text box blank to run scripts in the current working directory, otherwise use the folder icon to choose a directory to run scripts in. The directory is stored as a path relative to your Movable Python directory.

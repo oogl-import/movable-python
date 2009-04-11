@@ -1,0 +1,160 @@
+restindex
+    crumb: Introduction
+    tags: introduction
+/restindex
+
+====================================
+ Movable Python - Python on a Stick
+====================================
+-----------------
+ An Introduction
+-----------------
+
+.. image:: images/movpy.gif
+   :height: 128
+   :width: 128
+   :alt: Python on a Stick
+   :class: image
+   :align: center
+
+:Author: `Michael Foord`_
+:Contact: fuzzyman@voidspace.org.uk
+:Version: 2.0.0
+:Date: 2007/01/17
+:License: `Movable Python License`_
+:Homepage: `Movable Python Homepage`_
+:Download: `Download Movable Python`_
+:Support: `Movable Python Mailing List`_
+
+.. _Michael Foord: http://www.voidspace.org.uk/python/index.shtml
+.. _Download Movable Python: http://code.google.com/p/movable-python/
+.. _license:
+.. _Movable Python License: license.html
+.. _Mailing list:
+.. _Movable Python Mailing List: http://groups.google.com/group/movpy/
+.. _Voidspace Python Projects:
+.. _Voidspace Open Source Projects:
+.. _`Pythonutils Home Page`: http://www.voidspace.org.uk/python/index.shtml
+.. _`Movable Python Homepage`: http://www.voidspace.org.uk/python/movpy/
+
+
+.. contents:: This Documents Contents
+
+Introduction
+============
+
+.. image:: images/movpy2.jpg
+   :height: 194
+   :width: 528
+   :alt: Multifeatured Movable Python
+   :class: image
+   :align: center
+
+{emo;python} **Movable Python** is a distribution of Python, for Windows, that doesn't
+need to be installed. It easily fits onto a {acro;USB;Universal Serial Bus}
+memory stick or flash drive. Python on a stick [#]_. {sm;:-)}
+
+It is integrated with the Pythonwin {acro;IDE;Integrated Development Environment},
+to make **Movable Python** a portable *Build, Test, and Run* environment. It has
+a nice {acro;GUI;Graphical User Interface} to launch programs and control its 
+behaviour. At last you can carry a full development environment around with you.
+
+**Movable Python** is useful in the following situations:
+
+* Machines where you can't install programs.
+* Creating a 'clean' installation of Python for testing programs.
+* Where you need a portable '*Build, Test, and Run*' Python environment.
+* Having several versions of Python on the same machine for forward / backward
+  compatibility testing.
+* Easily deploying Python scripts without having to install Python.
+* Try before you buy - test Python without having to install it, including new
+  versions .
+* 'Python Runtime Environment'. '``.py``' files can be associated with movpy.
+
+.. note::
+
+    If you like **Movable Python**, don't forget to check out the other 
+    `Voidspace Python Projects`_.
+
+
+Usage
+=====
+
+**Movable Python** distributions come as a single zip file. For more details on the contents of this zipfile, see the `distributions page`_.
+
+To use, unzip the contents and open the ``movpy`` directory. If you doubleclick on ``movpyw.exe`` it will bring up the `GUI launcher <reference/gui_manual.html>`_. You can use this to launch scripts, the interpreter or an IDE.
+
+From the command line, you can use ``movpy.exe`` and ``movpyw.exe`` in the same way as you would use ``python.exe and ``pythonw.exe``. See the page on the `command line <reference/command_line.html>`_ for more details of the command line options available.
+
+
+Distributions
+=============
+
+The distributions come with the full Python standard library. They also include
+several tools and add-on libraries.
+
+There are five different distributions available :
+
+* Python 2.2.3
+* Python 2.3.5
+* Python 2.4.4
+* Python 2.5.0
+
+Each distribution comes with several popular third party extendion modules, like `pywin32 <http://sourceforge.net/projects/pywin32>`_, `wxPython <http://www.wxpython.org>`_ and `PIL <http://www.pythonware.com/products/pil/>`_ (plus lots more). For a full list of all the extension modules included, see the `distributions page <distributions.html>`_.
+
+If you would like to see your favourite extension or tool included in this list,
+`contact me <http://www.voidspace.org.uk/cgi-bin/contact/contact.py>`_ or post
+suggestions on the `Mailing List`_.
+
+It is easy to add further extension modules to your **Movable Python** distribution. See `Customising Your Distribution <reference/customising.html>`_.
+
+There is also a portable version of IDLE, called `Movable IDLE <movableidle.html>`_
+available for free download. This is built with Python 2.4.3 and comes with the full
+Python standard library, but lacks a lot of the features of **Movable Python**.
+
+
+Support and Compatibility
+=========================
+
+**Movable Python** is under active development, and will continue to improve.
+You can see some of the new features that may be added on the `TODO Page <TODO.html>`_.
+
+**Movable Python** contains the full Python interpreter and standard library.
+This means that it is capable of running any code that normal Python can. For
+an example of a large and complex program that runs under **Movable Python**,
+see `SPE <http://pythonide.stani.be>`_ the Python editor. {sm;:-)}
+
+A lot of work has gone into ensuring that programs run with **Movable Python**
+run in the same environment as a normal Python program. There are still some
+very slight differences. See the `ISSUES Page <ISSUES.html>`_ for more details
+on these.
+
+Any problems (programs not running) are *likely* to be with third party
+extension modules.
+
+Usually only with:
+
+* Modules that make registry entries when they are installed.
+* Modules that assume the Python executable name or rely on the directory
+  structure of a normal installation.
+* Modules that attempt to detect when they are running in a frozen environment
+  and behave differently.
+
+These cases are uncommon and usually resolvable.
+
+Please use the `Mailing List`_ for:
+
+* Bug reports
+* Feature requests
+* Suggestions
+* Questions
+
+
+------
+
+
+Footnotes
+=========
+
+.. [#] *Python on a stick, get your gannet ripple here*. Silly Monty Python
+       reference supplied by John Davenport.

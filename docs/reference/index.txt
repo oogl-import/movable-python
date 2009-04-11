@@ -1,0 +1,203 @@
+restindex
+    crumb: Manual
+    tags: manual, reference, use, usage, docs, documentation, technical
+    link-title: Movpy Manual
+    section-pages: , menus, options, quick_launch, current_directory, ide, interpreters, logging, command_line, special_files, customising, win32ext
+    page-description:
+        The index to the Movable Python manual. It includes an overview of the Movable Python GUI, with links to the relevant pages.
+    /description
+/restindex
+
+==========================
+ Movable Python Reference
+==========================
+--------------------------
+ Movable Python in Action
+--------------------------
+
+.. image:: ../images/movpy.gif
+   :height: 128
+   :width: 128
+   :alt: Python on a Stick
+   :class: image
+   :align: center
+
+.. raw:: html
+
+    <div class="displaybox">
+        <#
+            print_details(default_section, page_title='<h3>The Reference Manual</h3>')
+        #>
+    </div>
+
+-----------
+
+.. contents:: Using Movable Python
+
+Introduction
+============
+
+.. image:: ../images/movpy3.jpg
+   :height: 194
+   :width: 428
+   :alt: The Movable Python GUI
+   :class: image
+   :align: center
+
+**Movable Python**, as well as being a portable version of Python, has a lot of functionality built into it. Some of this functionality is exposed via the `command line <command_line.html>`_, but a lot of it is only relevant from the GUI.
+
+To use Movable Python, double click on ``movpy.exe`` or ``movpyw.exe``. This will launch the GUI.
+
+.. note::
+
+    **Movable Python** does not need installing.
+    
+    To use, unzip the folder and go to the ``movpy`` folder. It can be run from any folder, including a USB memory stick or flash card.
+
+This page covers the major elements of the GUI, and point to the relevant pages for features which merit further explanation. {sm;:-)}
+
+Menus
+=====
+
+.. image:: ../images/menus.jpg
+   :height: 57
+   :width: 352
+   :alt: The Menus
+   :class: image
+   :align: center
+
+Movable Python has various menu option. Some of them correspond to controls on the GUI. See the `Menus <menus.html>`_ page for more details.
+
+
+Script Controls
+===============
+
+.. image:: ../images/scripts.jpg
+   :height: 34
+   :width: 349
+   :alt: The Script Controls
+   :class: image
+   :align: center
+
+The first row of controls on the GUI are directly related to choosing and launching scripts.
+
+
+Launch
+------
+
+This button brings up a file dialog to select a script. It will be run immediately on selection.
+
+
+Script
+------
+
+This text box takes a path to a script, relative to the Movable Python directory. It is also a drop-down list containing previous scripts.
+
+Folder Icon
+-----------
+
+This icon brings up a file dialog to choose a script. The path to the file you choose will be placed in the script text box.
+
+Green Arrow
+-----------
+
+This will run the file in the script text box.
+
+
+Options and Args
+================
+
+.. image:: ../images/options_args.jpg
+   :height: 48
+   :width: 298
+   :alt: The Options and Arguments
+   :class: image
+   :align: center
+
+
+Configure
+---------
+
+This brings up the full `options <options.html>`__ dialog. These configure the options that scripts are run with, most of these equate to `command line <command_line.html>`_ options.
+
+
+Args
+----
+
+Anything you put in this text box will be passed to scripts you run as command line arguments.
+
+
+Options
+-------
+
+These check boxes allow you to easily set and unset the most commonly used `options <options.html>`__.
+
+These are :
+
+* ``f``
+
+    Force script to run in its own directory, rather than the current directory.
+
+* ``p``
+
+    Run scripts with psyco enabled.
+
+* ``b``
+
+    Pause (break) after running scripts. (For non-Movable Python interpreters this will cause them to be run in a command console which drops down to the console after running.)
+
+* ``i``
+
+    Enter an interactive interpreter session when the program exits.
+
+
+Quick Launch Buttons
+====================
+
+.. image:: ../images/quick_launch.jpg
+   :height: 50
+   :width: 317
+   :alt: The Quick Launch Buttons
+   :class: image
+   :align: center
+
+
+Movable Python provides eight quick launch buttons. These allow you to configure programs that you use frequently to be launched with a single push of a button (including setting options and passing command line arguments).
+
+These can be setup through the `Quick Launch Dialog <guick_launch.html>`_.
+
+
+IDE and Interactive Interpreter
+===============================
+
+.. image:: ../images/ide_interpreter.jpg
+   :height: 120
+   :width: 52
+   :alt: The IDE and Interactive Interpreter Buttons
+   :class: image
+   :align: center
+
+These two buttons launch an interactive interpreter session or an IDE.
+
+
+Interpreter
+-----------
+
+Clicking on the button marked ``>>>`` will launch an interactive interpreter session for the currently selected interpreter.
+
+By default Movable Python uses `IPython <http://ipython.scipy.org/>`_ for the interactive interpreter. You can switch this off with the ``IPOFF`` option.
+
+
+IDE
+---
+
+.. image:: ../images/Pythonwin.jpg
+   :height: 380
+   :width: 540
+   :alt: The Pythonwin IDE
+   :class: image
+   :align: center
+
+Movable Python comes with the `pythonwin <http://sourceforge.net/projects/pywin32>`_ {acro;IDE}.
+
+You can use the `IDE <ide.html>`__ dialog to configure which program is launched by the IDE button.

@@ -1,0 +1,196 @@
+restindex
+   crumb: Customizing
+   tags:  customizing, customising, shrink, reduce, change
+    page-description:
+        Customizing your Movable Python distribution.
+    /description
+/restindex
+
+============================
+ Customizing Movable Python
+============================
+----------------------------
+ Changing Your Distribution
+----------------------------
+
+.. image:: ../images/movpy.gif
+   :height: 128
+   :width: 128
+   :alt: Python on a Stick
+   :class: image
+   :align: center
+
+.. contents::
+
+Introduction
+============
+
+.. image:: ../images/customize.jpg
+   :height: 185
+   :width: 247
+   :alt: Customising the Distribution
+   :class: image
+   :align: center
+
+There are lots of ways you can customize your **Movable Python** distribution.
+You might want to do any of the following things :
+
+1) Add extension modules that you need
+2) Remove unneeded modules to reduce the distribution size
+3) Add paths to ``sys.path``
+4) Customize the environment your programs run in
+
+Items 3 and 4 can be done through editing ``customize.py`` and ``syspaths.pth``, a couple of the `Special Files <special_files.html>`_.
+
+This page discusses how you can do items 1 and 2.
+
+.. caution::
+
+    As you customize your distribution, don't change the executable names.
+    
+    **Movable Python** relies on the executable being called ``movpy.exe`` or
+    ``movpyw.exe``.
+
+
+Adding Extension Modules
+========================
+
+It is likely that you will want to add extension modules to your 
+**Movable Python** distribution.
+
+These should be added to the ``movpy/lib/`` folder, which acts as the equivalent
+of the ``site-packages`` folder in a normal Python distribution.
+
+If the modules you want to add are pure Python modules, you can just copy them
+straight into this folder.
+
+If the module is a compiled extension module (``.pyd`` or ``.dll``) then it
+must be compiled for the version of Python your **Movable Python** distribution
+uses.
+
+The easiest way of doing this is to copy the files from a normal Python
+installation. If this isn't possible (you don't have that version of Python
+installed anywhere), then `contact me <http://www.voidspace.org.uk/cgi-bin/contact/contact.py>`_.
+So long as the extension is freely available for that version of Python I can
+probably help.
+
+.. note::
+
+    Some Python extension modules are distributed as ``.exe`` files. These use
+    a ``zip`` compatible form. You can use a program like `Winrar <http://www.rarlabs.org>`_
+    to extract the files from the exectuable.
+    
+
+pth Files
+---------
+
+Some extension modules create ``.pth`` files in ``site-packages`` when they are
+installed. This adds paths to ``sys.path``, which Python uses to find modules.
+
+You can add the *contents* of these files to the ``syspaths.pth`` [#]_
+`Special File <special_files.html>`_.
+
+If you don't do this then code will fail to find modules when it needs them.
+
+
+Eggs
+----
+
+Python is not yet compatible with `easy_install <http://peak.telecommunity.com/DevCenter/EasyInstall>`_ from `setuptools <http://peak.telecommunity.com/DevCenter/setuptools>`_.
+
+You can still use uncompressed eggs with Movable Python. Just put the egg directory into the ``lib`` directory and add the egg directory to ``syspaths.pth``.
+
+
+Reducing Distribution Size
+==========================
+
+A lot of space is taken up by the extension modules provided with
+**Movable python**. If you want to reduce the space taken up by the
+distribution, a lot of these files can be safely deleted.
+
+In the `Distribution Contents <../distributions.html#distribution-contents>`_
+section it tells you what packages are included, and gives you some information
+about dependencies. For example, ctypes and readline are used by IPython and enchant is used for spell checking by Firedrop2.
+
+By far the biggest extension is wxPython. The ``wx-2.7.1-msw-unicode`` directory
+is over twenty megabytes.
+
+If you don't need wxPython, then you can also remove ``wax`` and
+``firedrop2`` as they won't work without wxPython anyway. {sm;:-)}
+
+``enchant`` is nearly seven megabytes, and is used by the Spell Checker plugin
+for ``firedrop2``.
+
+.. caution::
+
+    ``tcl`` is used by the GUI, which is written with Tkinter. If you delete
+    this, the GUI will fail to run.
+    
+    Other than ``tcl``, none of the sub-directories of the ``lib`` directory
+    are *required* to run **Movable Python**.
+
+A minimal distribution can be creatd by removing *all* the
+extension modules. If you remove all the docs as well, the final uncompressed size
+is about 16 megabytes (depending on which version of Python your distirbution is for).
+
+You can further reduce that by using `UPX <http://www.upx.org/>`_ to compress
+the dlls and pyds.
+
+.. note: ::
+
+    To use **Movable Python** on Windows 98, with long path names, you will
+    need to keep the ``win32api`` module.
+
+
+win32 Extensions
+----------------
+
+The win32 extensions take up around five megabytes. If you don't use them it's
+fine to delete them, although they're popular extensions and lots of other
+software does use them.
+
+``pywintypes24.dll`` and ``pythoncom24.dll`` are both part of the win32
+extensions and can be deleted if you aren't going to use them.
+
+The following directories are all part of the win32 extensions :
+
+* isapi
+* win32
+* win32com
+* win32comext
+
+.. note::
+
+    The ``win32api`` extension is needed under Windows 98.
+
+Other Files
+-----------
+
+If your distribution will never run on a windows 98 computer, *or* never uses
+unicode, you can get rid of ``unicows.dll``. 
+
+On some computers you might not need the two other Microsoft dlls [#]_ - but a
+clean install of XP *will* need them, they're not part of the
+{acro;OS;Operating System}.
+
+The copy of ``docs_html`` in the ``movpy`` folder is the one launched by
+the **About** button on the GUI. If you delete this folder, the
+`online version <http://www.voidspace.org.uk/python/movpy/about.html>`_ should
+be launched instead.
+
+
+UPX Compression
+---------------
+
+Another way of reducing distribution size is to use UPX_ to compress dlls, pyds,
+and executables.
+
+It's not something I've tried - but lots of people recommend it.
+
+----------------
+
+Footnotes
+=========
+
+.. [#] Located in the ``lib`` directory.
+.. [#] ``msvcr71.dll`` and ``msvcp71.dll``.

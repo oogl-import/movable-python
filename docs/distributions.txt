@@ -1,0 +1,298 @@
+restindex
+   crumb: Distributions
+   tags: distributions, choice, python, versions
+/restindex
+
+==============================
+ Movable Python Distributions
+==============================
+--------------------
+ What's In the Box?
+--------------------
+
+.. image:: images/movpy.gif
+   :height: 128
+   :width: 128
+   :alt: Python on a Stick
+   :class: image
+   :align: center
+
+.. contents::
+
+Introduction
+============
+
+.. image:: images/distribution.jpg
+   :width: 443
+   :height: 137
+   :alt: The Distribution
+   :target: images/distribution_big.jpg
+   :class: image
+   :align: center
+
+This page describes the **Movable Python** distributions. Which one should you
+buy, and what comes in the box ?
+
+Which Distribution ?
+====================
+
+The decision as to which distribution you want depends entirely on which 
+version of `Python <http://www.python.org>`_ you want to use.
+
+* Python 2.5
+* Python 2.4.4
+* Python 2.3.5
+* Python 2.2.3
+
+The current version number is 2.0.0.
+
+There is also a portable version of IDLE, called `Movable IDLE <movableidle.html>`_. 
+This is built with Python 2.4.3 and comes with the full
+Python standard library, but lacks a lot of the features of **Movable Python**.
+
+What Comes in the Box
+=====================
+
+Each distribution is supplied as a single zipfile. Each zipfile contains a
+single directory (``movpy-version``) with the following subdirectories :
+
+1) **docs**
+2) **docs_html**
+3) **licenses**
+4) **manuals**
+5) **movpy**
+6) **Firedrop2 Extras**
+
+A normal distribution is quite big (around 60 megabytes). This is because of
+all the extra libraries and tools that come with it. You can drastically
+reduce this size by removing the ones you don't need. See 
+`Customising Movable Python <reference/customising.html>`_ for details on how to do
+this.
+
+
+docs
+----
+
+This contains the text source files for **Movable Python**. These are intended
+to be rendered using `rest2web <http://www.voidspace.org.uk/python/rest2web/>`_.
+
+In addition to the document source files it contains :
+
+* ``r2w.ini`` - the config file for rest2web to generate the {acro;HTML} 
+  docs.
+
+    You will need to edit the ``macros`` value to point to your macro file for
+    this to work correctly.
+    
+* ``template.txt`` - the HTML template for the generated docs.
+
+
+docs_html
+---------
+
+The **Movable Python** documentation in HTML format. This directory also
+contains all the images and {acro;CSS} stylesheet needed.
+
+
+licenses
+--------
+
+These are the licenses for the Python libraries and tools that come with
+**Movable Python**.
+
+The **Movable Python** license is part of the documentation.
+
+
+manuals
+-------
+
+Documentation and manuals for some of the Python libraries and tools that come
+with **Movable Python**.
+
+
+movpy
+-----
+
+This is the distribution itself. It contains the executables ``movpy.exe`` and
+``movpyw.exe``, as well as several dlls.
+
+``movpyw.exe`` runs programs without the dos console box.
+
+The ``lib`` directory is where the `Special Files`_ are
+located. These allow you to customize the behaviour of **Movable Python**.
+
+
+Firedrop2 Extras
+----------------
+
+This contains extra files used by the `macros <http://www.voidspace.org.uk/python/firedrop2/macros.html>`_
+in `Firedrop2 <http://www.voidspace.org.uk/python/firedrop2/>`_.
+
+These don't go in the main **Firedrop2** directory. You should follow the
+instructions in the documentation on how to use them. The documentation is
+included in the manuals_ folder.
+
+
+Distribution Contents
+=====================
+
+Every **Movable Python** distribution comes with the full standard library. 
+This means that it is capable of running any code that normal Python can. For 
+an example of a large and complex program that runs under **Movable Python**, 
+see `SPE <http://pythonide.stani.be>`_ the Python editor. {sm;:-)}
+
+A `Movable Python User <http://blog.99hats.com/>`_ also reports running Zope
+3.2 with **Movable Python**.
+
+Also included are several additional libraries and tools. Below is the list of
+packages and versions that are currently included:
+
+.. note::
+
+    For compatibility reasons it is not always possible to include all the
+    packages (or the latest versions) in the Python 2.2 distributions.
+
+    The list below notes any differences.
+
+
+Python 2.5
+----------
+
+Several of the third party extensions included in **Movable Python** (like ctypes) are now a standard part of Python. For obvious reasons they're not included separately. {sm;:-)}
+
+To see all the new extensions in Python 2.5, see `New, Improved, and Removed Modules <http://docs.python.org/whatsnew/modules.html>`_.
+
+
+Python 2.4
+----------
+
+Python 2.4 come with the following tools and libraries :
+
+* `psyco <http://psyco.sourceforge.net/>`_ - Version 1.5.2 - The 
+  specialising compiler.
+
+    The specializing compiler. Can be used to increase the speed of your
+    Python programs.
+
+    Through the GUI and command line you can turn psyco on for *all* programs
+    that you run.
+
+* `IPython <http://ipython.scipy.org/>`_ - 0.7.1.fix1
+
+    IPython is the default interactive interpreter for **Movable Python**.
+
+    It has many advanced features over the standard one - as well as
+    providing many functions normally only available from a command line shell.
+
+* `wxPython <http://www.wxpython.org/>`_ - 2.8.0-unicode - The wxWidgets
+  based GUI toolkit.
+
+    wxPython is the powerful GUI toolkit based on wxWidgets.
+
+    It includes the standard wxPython tools like the `PyCrust Shell <http://wxpython.org/py.php>`_.
+
+* `docutils <http://docutils.sourceforge.net>`_ - 0.4.0 - For rendering {acro;ReST;ReStructured Text} documents.
+
+    The set of libraries used to ReST into HTML and LaYTex.
+
+* `ctypes <http://starship.python.net/crew/theller/ctypes/>`_ - 1.0.1 - A library to call {acro;dll;Dynamic Linked Libraries}s from Python.
+
+    This is needed for readline support in IPython. ctypes interfaces Python to
+    external libraries.
+
+* `readline <http://sourceforge.net/projects/uncpythontools>`_ - 1.12 - A port of GNU readline.
+
+    The port of GNU readline to the windows platform.
+
+    Used by IPython.
+
+* `Firedrop2 <http://www.voidspace.org.uk/python/firedrop2/>`_ - 0.2.2 - The Python blog client.
+
+    The Python blog client. A fully featured tool for managing weblogs. It can
+    also be used for managing document collections.
+
+* `Wax <http://sourceforge.net/projects/waxgui>`_ - 0.3.33 - A toolkit making it easier to use wxPython.
+
+    A wrapper layer that makes programming with wxPython a much more pleasant
+    experience.
+
+    Used by Firedrop.
+
+* `pythonutils <http://www.voidspace.org.uk/python/modules.shtml#pythonutils>`_ - 0.2.5 - A package of Python programming modules.
+
+    A python Package containing several modules that simplify common
+    programming tasks.
+
+* `PyEnchant <http://pyenchant.sourceforge.net/>`_ - 1.3.0 - A Python spell checker.
+
+    A Python spell checker module. Used by Firedrop.
+
+* `PyCrypto <http://www.amk.ca/python/code/crypto>`_ - 2.0.1 - Python cryptography toolkit.
+
+    Python cryptography tools.
+
+* `win32 extensions <http://sourceforge.net/projects/pywin32/>`_ - Build 210 - Windows module.
+
+    A set of Windows extensions for Python. This includes the Pythonwin
+    IDE.
+
+* `PIL <http://www.pythonware.com/products/pil/>`_ - 1.1.6 - The Python Imaging Library.
+
+    Image manipulation from Python.
+
+* `Pmw <http://pmw.sourceforge.net/>`_ - 1.2 - Python Megawidgets
+
+IDLE, the Python editor in the standard library, is also included and works.
+This uses the version of ``TKinter``/``Tcl`` that usually comes with that
+version of Python.
+
+
+Python 2.3
+----------
+
+* wxPython 2.8 is not available for Python 2.3. The version included in the Python 2.3 distribution is 2.6.3.3.
+
+* Psyco 1.5.1
+
+
+Python 2.2
+----------
+
+The Python 2.2 distributions don't include IPython/readline/ctypes as IPython can't
+be made to work properly with python 2.2 (IPython requires a version of ctypes 
+that isn't available for Python 2.2).
+
+The last version of wxPython available for Python 2.2 is 2.5.3.1.
+
+In addition, error reporting from python 2.2 is less good. This affects the
+exec command we use to run scripts. It means that you may not get told which
+file the error was raised in.
+
+Some of the other libraries may not be fully compatible with Python 2.2. These
+will either be removed or revert to earlier versions if unsolvable problems are
+discovered.
+
+Listed here are extensions which are different from the versions for the Python 2.4/2.3 distributions :
+
+* wxPython 2.5.3.1 - The wxWidgets based GUI toolkit.
+
+* Wax 0.3.27 - A toolkit making it easier to use wxPython.
+
+* Psyco 1.5.1
+
+
+
+Special Files
+=============
+
+As well as the program files, **Movable Python** has several files that control
+its behaviour. You can control *most* of these through the `GUI <gui_manual.html>`_,
+but you can also edit some of these by hand.
+
+These are located in the ``lib`` directory.
+
+Particularly, you might want to add paths to *syspaths.pth* (to add paths to
+``sys.path``) or edit *customize.py* to customise the environment programs run
+in.
+
+See `Special Files`_ for details.

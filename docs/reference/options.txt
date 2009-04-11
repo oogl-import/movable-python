@@ -1,0 +1,89 @@
+restindex
+    crumb: Options
+    page-description:
+        Configuring the various options (usually of Python command line arguments) that your programs are run with.
+    /description
+/restindex
+
+====================
+ The Options Dialog
+====================
+------------------------------------
+ Specifying Options From the Dialog
+------------------------------------
+
+.. image:: ../images/movpy.gif
+   :height: 128
+   :width: 128
+   :alt: Python on a Stick
+   :class: image
+   :align: center
+
+.. contents::
+
+Introduction
+============
+
+.. image:: ../images/options.jpg
+   :height: 180
+   :width: 407
+   :alt: Configuring the Options
+   :class: image
+   :align: center
+
+**Movable Python** has various special features built into. When using the command line, these can be specified by `command line arguments <command_line.html>`_ passed to the ``movpy`` or ``movpyw`` executable.
+
+The options dialog provides a way of controlling these from the GUI.
+
+This dialog can be accessed from the `menu <menus.html#options>`_ or the `configure button <index.shtml#configure>`_.
+
+
+Saved Options
+=============
+
+When you change options from this dialog you have the choice of choosing ``OK``, ``Save`` or ``Cancel``.
+
+If you choose ``Save`` then these options will be set next time you run Movable Python.
+
+These options are saved in one of the `Special Files <special_files.html>`_. They are also used when you run Movable Python from the command line (unless you use the ``-o`` override option).
+
+
+The Options
+===========
+
+* ``f``
+
+    Force scripts to run in their own directory, rather than the current directory.
+
+* ``i``
+
+    Drop into an interactive interpreter session when the program exits. (For non-Movable Python interpreters this will cause them to be run in a command console which drops down to the console after running.)
+
+
+* ``p``
+
+    Enable `psyco <http://psyco.sourceforge.net>`_ for Python scripts.
+
+* ``u``
+
+    Run Movable Python in 'unbuffered' mode.
+
+* ``b``
+
+    Pause (break) when the program exits. (For non-Movable Python interpreters this will cause them to be run in a command console which drops down to the console after running.)
+
+* ``IPOFF``
+
+    Do not use `IPython <http://ipython.scipy.org/>`_ for interactive interpreter sessions. If ``p`` is on *and* ``i`` is in use IPython will be off anyway.
+
+* ``x``
+
+    Skip the first line of the script.
+
+The options ``u``, ``i`` and ``x`` also work when the interpreter in use is a normal Python interpreter.
+
+
+The Console
+===========
+
+These radio buttons set the console options, in the same way as the `console menu <menus.html#console>`_.

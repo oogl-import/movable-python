@@ -1,0 +1,153 @@
+restindex
+    crumb: Menus
+    page-description:
+        The Movable Python menu options.
+    /description
+/restindex
+
+======================
+ Movable Python Menus
+======================
+
+.. image:: ../images/movpy.gif
+   :height: 128
+   :width: 128
+   :alt: Python on a Stick
+   :class: image
+   :align: center
+
+.. contents:: The Movable Python Menus
+
+Introduction
+============
+
+.. image:: ../images/menus.jpg
+   :height: 57
+   :width: 352
+   :alt: The Menus
+   :class: image
+   :align: center
+
+**Movable Python** has various menu options. Some of these correspond to controls on the GUI, or launch dialogs to access further functionality.
+
+For an overview of Movable Python, with links to the documentation on all the difference features, see the `Manual Index Page <index.html>`_.
+
+File
+====
+
+Choose
+------
+
+Choose a file and put the path in the 'Script:' textbox. This option is the same as using the `launch <index.html#launch>`_ button from the GUI.
+    
+Launch
+------
+
+Choose a file and launch it (using the options that are currently set). This is the same as selecting the `folder icon <index.html#folder-icon>`_ from the GUI.
+
+Exit
+----
+
+Guess. {sm;:-)}
+
+
+Configure
+=========
+
+Options
+-------
+
+Launch the dialog to configure the `options <options.html>`_ that files are launched with.
+
+This allows you to control things like whether `psyco <http://psyco.sourceforge.net>`_ is enabled, whether scripts are run in their own directory and control whether scripts are run with a console or not.
+
+
+Current Directory
+-----------------
+
+This chooses the directory that scripts are run in. Usually you will want them run in the current directory, or run in the directory they live in.
+
+Sometimes, for command line tools etc, you need to be able to specify the directory it is run in. If you need more details, they can be found on the `Current Directory Page <current_directory.html>`_. 
+
+
+Choose IDE
+----------
+
+This allows you to specify which program is launched when you select the ``IDE`` button. See the `IDE <ide.html>`_ page.
+
+
+Quick Launch
+------------
+
+This brings up the dialog that allows you to configure which programs are launched by your eight `Quick Launch <quick_launch.html>`_ buttons, and what options they are run with.
+
+
+Interpreters
+------------
+
+This menu option allows you to configure which interpreters are available in the interpreter_ menu.
+
+See the `Interpreters <interpreters.html>`__ page for details of how to set this up.
+
+These interpreters can be other Movable Python interpreters, any executable or batch file or even a Python script. This dialog can also detect installed versions of Python, allowing you to use Movable Python to launch programs with your normal Python installation.
+
+
+Logging
+-------
+
+Movable Python can log the output of all programs it runs. This dialog configures the way this works (create a new file each time, append to an existing file etc). See the `Logging <logging.html>`_ page for more details.
+
+
+Console
+=======
+
+This menu option is a three way 'radio' selection. It allows you to choose whether programs are launched with a console or not. (This can also be configured through the `Options Dialog <options.html>`_.
+
+The three choices are :
+
+* Normal
+
+    This will use a console for '.py' files, and no console for '.pyw' files. This works for Movable Python interpreters, normal Python installations and also the `IronPython <http://www.codeplex.com/Wiki/View.aspx?ProjectName=IronPython>`_ interpreters.
+
+* Console On
+
+    A console will always be used.
+    
+* Console Off
+
+    Scripts will always be launched without a console.
+
+
+Interpreter
+===========
+
+This menu allows you to choose from all the interpreters you have configured. See the `Interpreters Page <interpreters.html>`__ for details of how to do this.
+
+The 'default' option is always the Movable Python version that is currently running.
+
+The selected interpreter will be used to run scripts *and* when you hit the interactive interpreter (``>>>``) button. It *won't* (currently) be used with your quick launch buttons or the IDE.
+
+
+Log Mode
+========
+
+This is another radio menu, this time for configuring the log mode. You specify the logfile via the logging_ dialog. Using special values in the path, you can create a log into a new file (or directory) based on the time or the name of the file being run.
+
+The three settings are :
+
+* Logging Off
+
+    No logging.
+
+* Logmode Write
+
+    Create a new logfile every time (overwriting an existing one if necessary).
+
+* Logmode Append
+
+    Append to the logfile if it already exists.
+
+Help
+====
+
+This menu takes you to various web locations relevant to Movable Python. It ought to use the local documentation, from the filesystem, if it is available.
