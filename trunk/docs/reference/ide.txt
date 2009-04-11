@@ -1,0 +1,56 @@
+restindex
+    crumb: IDE
+    page-description:
+        Launching the IDE of your choice from Movable Python.
+    /description
+/restindex
+
+====================================
+ Integrated Development Environment
+====================================
+-----------------------------------
+ Launching and Configuring the IDE
+-----------------------------------
+
+.. image:: ../images/movpy.gif
+   :height: 128
+   :width: 128
+   :alt: Python on a Stick
+   :class: image
+   :align: center
+
+.. contents::
+
+Introduction
+============
+
+.. image:: ../images/Pythonwin.jpg
+   :height: 380
+   :width: 540
+   :alt: Choosing an IDE
+   :class: image
+   :align: center
+
+
+The **Movable Python** GUI has a shiny big button marked **IDE** on it. This launches an IDE [#]_. {sm;:-)}
+
+The default IDE which comes with Movable Python is `Pythonwin <http://sourceforge.net/projects/pywin32>`_ [#]_.
+
+Configuring an IDE
+==================
+
+.. image:: ../images/choose_ide.jpg
+   :height: 176
+   :width: 273
+   :alt: Choosing an IDE
+   :class: image
+   :align: center
+
+You can configure which IDE is launched through the *Choose IDE* menu option. For example you can download `SPE <http://pythonide.stani.be/>`_ for Movable Python from the `Movable Python Extra Files <http://www.tradebit.com/usr/voidspace/files.php/7007>`_ page. Other IDEs, like `Ulipad <http://wiki.woodpecker.org.cn/moin/UliPad>`_ will probably work with Movable Python.
+
+The choose IDE dialog allows you to select a file to be used as the IDE (Python file, executable or batch file) and any arguments to be passed to it.
+
+If the IDE is a Python file it will be launched without a console. You currently can't configure things like the directory that the script is run in.
+
+.. [#] The IDE is always launched with the default interpreter for the version of Movable Python that you are running.
+.. [#] Currently there is a minor incompatibility between Movable Python and Pythonwin. The 'browse' button on the 'Run' dialog has been disabled.

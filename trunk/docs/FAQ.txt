@@ -1,0 +1,107 @@
+restindex
+   crumb: FAQ
+   tags:  faq, frequently asked questions, questions, answers
+   link-title: FAQ
+/restindex
+
+============================
+ Frequently Asked Questions
+============================
+------------------------
+ The Movable Python FAQ
+------------------------
+
+.. image:: images/movpy.gif
+   :height: 128
+   :width: 128
+   :alt: Python on a Stick
+   :class: image
+   :align: center
+
+   
+.. contents::
+
+Introduction
+============
+
+This page has some quick answers to *Frequently Asked Questions* about
+**Movable Python**.
+
+
+1) How Big are the Final Distributions ?
+========================================
+
+The zip file is about twenty meg, and unpacked this weighs in at around 60meg.
+This is largely extension modules.
+
+See `Customising Your Distribution <customising.html>`_ for ways you can reduce
+this size.
+
+2) What is the minimum size of a distribution ?
+===============================================
+
+A minimal distribution can be creatd by removing SPE, wxPython and all the
+extension modules. If you remove all the docs as well, the final size
+(uncompressed) is about 16 megabytes.
+
+You can further reduce that by using `UPX <http://www.upx.org/>`_ to compress
+the dlls and pyds.
+
+.. note: ::
+
+    To use **Movable Python** on WIndows 98, with long path names, you will
+    need to keep the ``win32api`` module.
+
+3) Will it Run From USB 1.1 ?
+=============================
+
+It will run fine, although slightly slower than on a USB 2 connection.
+
+4) Can I Use it With a Different Version of Python Installed ?
+==============================================================
+
+This is one of the major use cases of **Movable Python**. You can run files
+with one version of Python, without interfering at all with a different version
+of Python installed on the same machine.
+
+5) Does it Work With Extension Module X ?
+=========================================
+
+The answer is *usually* (but not always) **Yes**. See `Customising Your Distribution`_
+for details on adding your own extension modules to your distribution.
+
+If you do have problems, ask on the `Mailing List`_.
+
+6) How Compatible With Normal Python is it ?
+============================================
+
+**Movable Python** effectively has a normal Python interpreter embedded in it,
+so the answer is *very* compatible. For an example of a large and complex
+program that runs under **Movable Python**, see SPE_ the Python editor. A
+`Movable Python user <http://blog.99hats.com/>`_ also reports running Zope
+3.2 with **Movable Python**.  {sm;:-)}
+
+
+There are slight differences between the environment programs run in under
+**Movable Python**. See the `ISSUES Page <ISSUES.html>`_ for a list of things
+you should be aware of.
+
+7) Can I Get a Python 2.1 (or earlier) Distribution ?
+=====================================================
+
+**Movable Python** is built using `py2exe <http://www.py2exe.org>`_. *If* there
+is a version of py2exe that works with Python pre-2.2 then it's theoretically
+possible. There are no current plans to do this however.
+
+8) Does Movable Python Work With Win 98 ?
+=========================================
+
+**Movable Python** is tested and works with Windows 98. There are still some
+outstanding reported errors with third party extension modules.
+
+9) Can I Use Movable Python with Web Applications
+=================================================
+
+Yes. {sm;:-)}
+
+Users have reported getting Movable Python working with Zope 3, CherryPy and Twisted. There is also a page on using Movable Python with `Django <http://code.djangoproject.com/wiki/MovablePythonInstall>`_.

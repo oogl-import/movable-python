@@ -1,0 +1,174 @@
+restindex
+    crumb: TODO
+    tags:  todo
+/restindex
+
+===============
+ The TODO List
+===============
+----------------------------------------
+ Future Enhancements for Movable Python
+----------------------------------------
+
+.. image:: images/movpy.gif
+   :height: 128
+   :width: 128
+   :alt: Python on a Stick
+   :class: image
+   :align: center
+
+.. contents::
+
+Introduction
+============
+
+.. image:: images/ToDo.gif
+   :height: 250
+   :width: 260
+   :alt: Future Directions for Movable Python
+   :class: image
+   :align: center
+
+This is the **TODO** list for **Movable Python**. It includes things that need
+to be done to improve Movable Python, and also future directions that it could
+go in. Not necessarily all of these will be implemented.
+
+Some of the items have (?) at the end of them. This means we are not sure if it
+desirable to implement the suggestion at all. There is a constant tension
+between adding more flexibility (extra options) and keeping things simple.
+Your input is wanted; if it matters to you whether we do something or not, let
+us know. 
+
+For bug reports and feature requests you can either use the `Mailing List <http://groups.google.com/group/movpy/>`_
+or `contact me <http://www.voidspace.org.uk/cgi-bin/contact/contact.py>`_
+directly.
+
+There are also some `ISSUES <ISSUES.html>`_ with **Movable Python**. They 
+aren't necessarily bugs, but things to be aware of; lest any of them catch you
+out. {sm;:-)}
+
+Todo and Future Directions
+==========================
+
+* Add an updated pytz
+
+* Batch files for non-Python interpreters, to implement pause
+
+* Support the Python 2.5 enhanced ``-m`` to Movable Python.
+
+* Get movpy passing (modified where appropriate) all the Python tests
+
+* Add a ``'-lo'``, *logging off* command line option to override the saved logging options when specified at the command line.
+
+* A python filter to log the output of non-Python files run by Movable Pythons
+
+* Through environment variables allow (for the normal Python interpreter) :
+
+    - Switching on of psyco
+    - Logging (select mode *and* file)
+
+* Add Python 2.5 long command line options
+
+* Upgrade to IPython 0.7.2 (will need pyreadline support)
+
+* Have movpy support more of the unsupported command line options of python as
+  possible. (see the `Command Line <command_line.html>`_ page.)
+  
+* Integrate with `pysvn <http://pysvn.tigris.org/>`_ for syncing with a
+  Suversion server. Add a *sync* button to the GUI or as a menu option.
+
+* Support ``setuptools`` and ``easy_install``.
+
+* A 'restore defaults' button for the quick launch buttons.
+
+* Support py2exe itself - this requires building the distribution with bundle
+  option 4. All the ``pyc`` files are stored in the filesystem, rather than in
+  a single zip file.
+
+* Check for updates from the web
+
+
+GUI & Configuration Improvements
+================================
+
+* A modified symbol ('*') for interpreters and quick launch entries
+
+* Allow the console to be switched on for the IDE.
+
+* *Single directory* stored for all dialogs
+
+* Drag and drop
+
+* Add a clear recent files option
+
+* Add release date to about dialog
+
+* Make "New" and "Remove" buttons the same width in configure interpreter.
+
+* Bind interpreters to shift-function keys and put a note in the dialog
+
+* Need a highlighted rocket
+
+* Make IDE and '>>>' button the same height (and OK and cancel the same width - can use anchor option for positioning)
+
+* Integrate tile for better GUI appearance
+
+* Start window in a sensible location
+
+* Bind escape to exit in the other dialogs
+
+* Remember the width of main dialog on close
+
+* Find a help icon (for configure quick launch and interpreter dialogs)
+
+* Add IDE and interpreter icons
+
+* Allow tab traversal and enter to select buttons (especially in the ``YesNoSaveDialog``).
+
+* Ask for confirm when user selects "Cancel" in Quick Launch dialog with changes
+
+* QuickLaunch and interpreter dialogs should use tab controls
+
+* Add quick launch 1-8 to menu (with names)
+
+* Allow arguments to the IDE command
+
+* Recent file list.
+
+* Use a monospaced font in all text entry boxes.
+
+* Use system size for FONT
+
+* "Save" as well as "Ok" (change OK to not saving) for logging and working directory ?
+
+* Add logging to the quick launch save file/config
+
+* Add hotkeys to the menus (and buttons) with underlining.
+
+* Allow saving and loading of different configurations ? (especially for the
+  quick launch buttons)
+
+* Movable Python could auto-detect installed versions of Python instead of setting them up via the interpreters dialog.
+
+* Shrink down to a system tray icon and let you drop files on it.
+
+* Make Pmw optional (default to ordinary text entry boxes)
+
+* GUI support for pylab
+
+* Allow current working directory to apply to the quick launch buttons. (add a "Use CWD" option ?)
+
+* Allow Quick Launch and IDE to use current interpreter
+
+* Add directory and interpreter selection to Quick Launch
+
+* Consider plus and minus icons for Add and Remove interpreters
+
+* Dynamic interpreter renumbering
+
+* The dialogs (chooseIDE, QuickLaunch, currentDirectory etc) should be horizontally resizable
+
+* Get enter working in root window
+
+* Crash dialog for movpy (send error reports)
+

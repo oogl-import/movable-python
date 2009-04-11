@@ -1,0 +1,70 @@
+restindex
+   crumb: Quick Launch
+   tags:  gui, launcher
+    page-description:
+        Configuring the programs launched by your *Quick Launch* buttons.
+    /description
+/restindex
+
+==============
+ Quick Launch
+==============
+----------------------------------------
+ The Movable Python Quick Launch System
+----------------------------------------
+
+.. contents::
+
+Introduction
+============
+
+.. image:: ../images/movpy_quicklaunch.jpg
+   :width: 428
+   :height: 194
+   :alt: Quick Launch Buttons
+   :class: image
+   :align: center
+
+The Quick Launch buttons allow you to setup eight programs that can be launched
+with the single press of a button.
+
+You can also launch the programs with the corresponding function keys **F1-8**.
+
+You can configure which programs are launched, command line arguments and the options they are run
+with, through the *Configure -> Quick Launch* menu option.
+
+Whenever you run movpy, your saved options are loaded.
+
+Programs run from the Quick Launch buttons are always run with the default interpreter.
+
+Buttons which don't have a program associated with them are disabled. 
+
+
+Configuring Quick Launch
+========================
+
+.. image:: ../images/configure_quick_launch.jpg
+   :width: 353
+   :height: 336
+   :alt: Configuring Quick Launch
+   :class: image
+   :align: center
+   
+The eight radio buttons down the side choose which quick launch button you are editing.
+
+The name is the tooltip that will be displayed when the mouse hovers over the button.
+
+The file is the path to the program to be launched, relative to the ``movpy`` directory. The program can be a Python file, a batch file or any executable.
+
+The option checkboxes are the normal **Movable Python** `options <options.html>`_ (and the console radio buttons).
+
+The extra one is *Use Args*. If checked then the quick launch button will be passed the command line arguments you enter in the 
+*Args* textbox.
+
+If it isn't checked, when the quick launch button is activated the arguments from the *Args* textbox in the main GUI will be used.
+
+If you want to pass extra command line arguments *always* as well as the ones from the *Args* textbox, you can you can do this using quotes in the 'File' text box :
+
+    ``"C:\Path\executable.exe" arg1 arg2``
+
+After editing the settings for a quick launch button you have to save the settings.

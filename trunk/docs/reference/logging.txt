@@ -1,0 +1,68 @@
+restindex
+    crumb: Logging
+    page-description:
+        Movable Python can log the output of all Python files that you run. This page will tell you how.
+    /description
+/restindex
+
+==========================
+ Movable Python & Logging
+==========================
+--------------------------------------
+ Logging the Output of Python Scripts
+--------------------------------------
+
+.. image:: ../images/movpy.gif
+   :height: 128
+   :width: 128
+   :alt: Python on a Stick
+   :class: image
+   :align: center
+
+.. contents::
+
+Introduction
+============
+
+.. image:: ../images/configure_logging.jpg
+   :height: 170
+   :width: 265
+   :alt: Configure Logging.
+   :class: image
+   :align: center
+
+**Movable Python** can log the output of all Python programs it runs. Any output on standard output and standard error can be logged, so long as they use the normal Python streams.
+
+
+Setting the Log Mode
+====================
+
+Movable Python has three logging modes, chosen from the *Log Mode* menu option.
+
+1) *Logging Off* - No logging
+2) *Logmode Write* - Create a new file for each logging operation (overwrite any existing file)
+3) *Logmode Append* - Append new log to existing file rather than overwriting
+
+
+Configuring Logging
+===================
+
+You set the log file location (and can also change the log mode) from dialog launched by the *Configure -> Logging* menu option.
+
+You can choose an individual file or use special values in the path to indicate the file to be used for logging. You can use this to create a new logfile (or directory) per file that you run or have files created by time or date (this means that you can create a new log file per file run, or a log directory per day).
+
+If the directory specified does not exist, Movable Python will attempt to create it.
+
+The following values will automatically be replaced in the path :
+
+    | ``{DATE}`` - The current date, in numerical format. E.g. ``20061127`` meaning 27th November 2006
+    | ``{TIME}`` - The current time, in numerical format. E.g. ``005125`` meaning 12.51 AM and 25 seconds
+    | ``{FILE}`` - The filename (not the full path) of the file run
+
+The default log directory is ``lib/config/logs/``. The default log file path is :
+
+    ``lib/config/logs/{DATE}-{TIME}-{FILE}.txt``
+    
+This creates log files with filenames that look like :
+
+    ``20061127-005125-somefile.py.txt``

@@ -1,0 +1,77 @@
+restindex
+   crumb: ISSUES
+   tags:  issues, problems, bugs
+/restindex
+
+=======================
+ Movable Python Issues
+=======================
+-----------------------
+ Things to be Aware of
+-----------------------
+
+.. image:: images/movpy.gif
+   :height: 128
+   :width: 128
+   :alt: Python on a Stick
+   :class: image
+   :align: center
+
+Introduction
+============
+
+This page is the list of known issues with **Movable Python**. They aren't
+bugs, but potential problems with **Movable Python** and things you should be
+aware of when running programs.
+
+Most of them relate to using third party extensions.
+
+Some of the issues here include slight differences between the **Movable Python**
+environment and the normal Python environment. In rare cases these can affect
+the running of applications.
+
+As issues (and fixes) are discovered they will be documented here. If you think
+you have discovered a problem, raise it on the 
+`Mailing List <http://groups.google.com/group/movpy/>`_ and we'll search for a
+solution.
+
+The Issues
+==========
+
+
+* IPython plays very badly with psyco. This is because psyco prevents local
+  variables in functions being accessed. Try entering interactive mode and
+  typing '``import psyco``', followed by '``psyco.full()``' to see what I mean.
+  Movable Python now detects when psyco is in operation and uses the alternative
+  (less featured) interactive mode instead.
+
+* ``sys.executable`` and ``sys.prefix`` (and ``sys.exec_prefix``) are different
+  for scripts run by Movable Python than they would be for a script run by
+  normal python. You can manually alter these values in ``customize.py`` if you
+  need to. (Obviously modifying ``sys.executable`` isn't wise.)
+
+* Some programs rely on the executable being called ``python.exe`` (or 
+  ``pythonw.exe``). Occassionally these names are hardwired on the code (which
+  ought to use ``sys.executable``).
+
+* Some code relies on a certain directory structure of Python installations -
+  for example the existence of a *site-packages* folder. This obviously doesn't
+  work with **Movable Python**.
+
+* ``sys.frozen`` exists - which it *wouldn't* do for a normal python script.
+  This can be an issue for some packages (like the win32 packages) which will
+  assume they are in a py2exe environment (and directory structure). See 
+  `win32ext <win32ext.html>`_ for more details on this issue.
+
+* '-' will generate an error log if you try it with ``movpyw.exe`` (quite 
+  rightly so !)
+
+* import statements in ``.pth`` files aren't supported. (Setuptools uses these.)
+
+* The normal distributions don't use  bytecode optimisation or compress the
+  ``library.zip``.
+
+* Saving a config file overwrites comments in the original.
+
+* The section for handling command line options doesn't deal with duplicate
+  entries.

@@ -1,0 +1,385 @@
+restindex
+   crumb: Command Line
+   tags:  command line, options, config, configuration, commands
+    page-description:
+        Using Movable Python from the command line, including the special options unique to Movable Python.
+    /description
+/restindex
+
+=======================
+ Command Line Options
+=======================
+--------------------------------------
+ Movable Python Configuration Options
+--------------------------------------
+
+.. image:: ../images/movpy.gif
+   :height: 128
+   :width: 128
+   :alt: Python on a Stick
+   :class: image
+   :align: center
+
+.. contents::
+
+Introduction
+============
+
+.. image:: ../images/command_line.jpg
+   :height: 281
+   :width: 502
+   :alt: movpy on the command line.
+   :target: ../images/command_line_big.jpg
+   :class: image
+   :align: center
+
+**Movable Python** has lots of command line options. Most of these can be
+configured through the `GUI <index.html>`_. Several of the command line
+options are the same as (or mimic) the Python command line options.
+
+This page documents the different options, and ends with a discussion of some
+of the Python command line options that aren't supported by **Movable Python**.
+
+First the Summary
+-----------------
+
+If you type ``movpy -h`` at the command line, you get the following help
+message : ::
+
+    usage: movpy [option] ... [-c cmd | file | -] [arg] ...
+    Options and arguments :
+    -c cmd : program passed in as string (terminates option list)
+    -f     : Change working directory to the script directory
+    -h     : print this help message and exit
+    -i     : inspect interactively after running script,
+             uses InteractiveConsole or IPython - probably needs a real stdin
+    -m mod : run library module as a script (terminates option list)
+    -u     : unbuffered stdout and stderr
+    -V     : print the movpy version and Python version number and exit
+    -x     : skip first line of source, allowing use of non-Unix forms of #!cmd
+    -IPOFF : Don't use IPython, even if it is available, default to InteractiveConsole
+    -p     : Attempt pysco.full() (incompatible with IPython interactive shell)
+    -b     : Pause for <enter> after terminating script
+    -o     : override saved options, only use comand line options
+    -koff  : A command line option for the GUI, force no console
+    -k     : A command line option for the GUI, force a console
+    -la file : Log output to file, open append in write mode
+    -lw file : Log output to file, open logfile in write mode
+    file   : program read from script file
+    -      : drop straight into InteractiveConsole or IPython
+    -pylab : Launch IPython in pylab mode
+    --config dir : Directory for config files (~ will be expanded)
+    arg ...: arguments passed to program in sys.argv[1:]
+    Run movpy without a file argument to bring up a lightweight GUI to choose a script
+    ('-c', '-', '-V' or '-h' options override this behaviour)
+    Python environment variables are ignored.
+
+As you can see, this rather terse text documents all the command line options.
+If you need more of an explanation, read the rest of this page... {sm;:-)}
+
+.. _Python Command Line Options:
+
+Python-Like Options
+-------------------
+
+Some of the command line options are the same as the normal Python command line
+options. (Type ``python -h`` at the command line to see what I mean.) This
+means that programs which call ``sys.executable``, followed by come command
+line options will still usually work. IDLE does this for example.
+
+The following options are intended to have the same effect (more-or-less) as
+when used with normal Python.
+
+* **c**    - Run a program passed in as a string
+* **h**    - Print the help information
+* **i**    - Enter interactive mode after running
+* **u**    - Run with unbuffered ``stdout`` and ``stderr``
+* **V**    - Print the version numbers and exit
+* **x**    - Skip the first line of the source code
+* **-**    - Enter interactive mode immediately
+* **m**    - Run library module as a script (terminates option list)
+
+For a discussion of Python command line options that are unsupported see
+`Unsupported Python Command Line Options`_.
+
+The Options
+===========
+
+This section lists all of the **Movable Python** command line options and
+explains what they do. They are basically *all accesible through the*
+GUI_, but you will still need to know what they do. {sm;:-)}
+
+If you use these options at the command line, the letters must be prefixed with
+a ``-``. For example :
+
+    ``movpy -p -f -i filename``
+
+This runs the Python programme ``filename``, in its directory, with psyco on,
+and switches to interactive mode after running.
+
+c
+--
+
+This option allows you to pass a small program as a string. It is executed and
+then **Movable Python** terminates. IDLE uses this option to launch its
+subprocess.
+
+f
+--
+
+Run the program in its directory. A lot of scripts *expect* the current
+directory to be the directory in which they are located.
+
+h
+--
+
+Prints the help message.
+
+i
+--
+
+Enter the interactive interpreter mode after running the program. This allows
+you to inspect the objects used by the program.
+
+If ``IPOFF`` and ``p`` are both *off*, then the interpreter used will be
+`IPython <http://ipython.scipy.org/>`_.
+
+The ``b`` option is ignored if ``i`` is set.
+
+A console box is *always* used if you specify ``i``.
+
+m
+--
+
+Run a module as a script. The module must be somewhere on ``sys.path``.
+
+u
+--
+
+Run with unbuffered ``stdout`` and ``stderr``. This is simulated on the Python
+level, and so *doesn't* apply to the underlying C ``stdout`` and ``stderr``.
+
+V
+--
+
+Print the version of **Movable Python** and the version of Python.
+
+x
+--
+
+Skip the first line of the script.
+
+IPOFF
+-----
+
+If ``IPOFF`` is set then `IPython`_ *isn't* used as the interactive
+interpreter.
+
+p
+--
+
+Switch `psyco <http://psyco.sourceforge.net/>`_ the specializing compiler on. (Do a ``psyco.full()``). This
+accelerates most Python programs.
+
+It is not compatible with **IPython**, so using ``p`` with ``i`` will switch
+**IPython** off.
+
+b
+--
+
+Pause for <enter> after running the script. This is useful if the script is a
+command line script that terminates immediately after running. Selecting ``b``
+allows you to see the results before the console window vanishes.
+
+o
+--
+
+Override ``config.txt``. You can save default options in the `Special File <special_files.html>`_
+``config.txt``. (Also through the GUI.) ``o`` allows you to run a program
+without using the default options.
+
+die
+---
+
+If the GUI is launched with the ``die`` option, it will exit immediately it
+runs a program.
+
+koff
+----
+
+If ``koff`` is selected, then ``movpy.exe`` will *not* launch programs with a
+console box.
+
+k
+--
+
+If ``k`` is selected, then ``movpyw.exe`` *will* launch programs with a console
+box.
+
+\-
+--
+
+``-`` forces **Movable Python** straight into interactive interpreter mode.
+Whether **IPython** is used depends on the ``IPOFF`` option.
+
+All Movpy command line options other than ``IPOFF`` (and ``o``) are ignored when
+going straight into interactive interpreter mode. (And a console box is forced
+even if you didn't specify one !)
+
+Additional command line options after the ``-`` are passed to IPython. 
+
+.. note::
+
+    The option ``pylab`` is special cased, see below.
+    
+    Additionally, the option ``libdir`` is set by **Movable Python**, other
+    than that you can customize the behaviour of IPython by passing in command
+    line arguments.
+
+\- pylab
+~~~~~~~~
+
+**Movable Python** has built in support for `matplotlib <http://matplotlib.sourceforge.net/>`_. 
+If you have the `matplotlib files <http://www.voidspace.org.uk/matplotlib.zip>`_
+in your ``lib/`` directory  you can run the following at the command line :
+
+    ``movpy.exe - -pylab``
+
+This should drop you straight into a IPython session, with pylab enabled.
+
+Because of a limitation in IPython, the pylab session will run in its own
+namespace. This means that although ``customize.py`` will run, you won't have
+access to the namespace it ran in. You can still ``import movpy`` of course.
+
+
+la 
+--- 
+   
+`Log <logging.html>`_ the output of the file, in append mode.
+
+    
+lw
+---
+
+Log_ the output of the file, in write mode.
+
+
+config
+------
+
+The config option allows you to specify a directory for config files. ``~`` will be expanded to the users home directory :
+
+    ``movpy --config ~/movpy``
+
+If no config files exist in that directory then the default values will be used.
+ dir : Directory for config files (~ will be expanded)
+  
+
+
+Unsupported Python Command Line Options
+=======================================
+
+**Movable Python** supports *most* of the `Python Command Line Options`_. There
+are still a few it doesn't support. Some of the currently unsupported ones it
+would be possible to implement, and others it would be very hard.
+
+If **Movable Python** is launched with an unsupported command line option, then
+a warning is printed to ``sys.stderr``, and the option is ignored.
+
+Currently unsupported ones are :
+
+* ``-d``     : debug output from parser
+* ``-E``     : ignore environment variables
+
+    Because we don't have access to the Python environment variables, we are
+    effectively running in ``E`` mode already. {sm;:-)}
+
+* ``-O`` and ``-OO``    : optimize generated bytecode
+
+    **Movable Python** is created using `py2exe <http://www.py2exe.org>`_. You
+    specify the level of optimisation at the point that you create the
+    application.
+    
+    To support these command line options would probably involve a lot of work
+    hacking py2exe.
+
+* ``-Q arg`` : division options: -Qold (default), -Qwarn, -Qwarnall, -Qnew
+* ``-S``     : don't imply 'import site' on initialization
+
+    We don't *import site* - but we do run *customize.py*. We could allow this
+    to be disabled.
+
+* ``-t`` and ``-tt``   : issue warnings about inconsistent tab usage (-tt:
+  issue errors)
+* ``-v``     : verbose (trace import statements)
+* ``-W arg`` : warning control (arg is action:message:category:module:lineno)
+
+If you have a particular need for any of these options to be implemented, then
+make a case for it on the `Mailing List <http://groups.google.com/group/movpy/>`_.
+It may be possible. {sm;:???:}
+
+Environment Variables
+---------------------
+
+Python allows its behaviour to be affected by several environment variables.
+In order to isolate **Movable Python** [#]_ from the current Python install
+(which may be a different version of Python), these environment variables
+aren't accessible. It *would* be possible to create an alternative set of
+environment variables specific to **Movable Python**. As **Movable Python** is
+designed to be a portable distribution, it doesn't seem worthwhile. (In other
+words, no-one would use them.)
+
+The environment variables supported by a normal Python installation are :
+
+*    PYTHONVERBOSE
+
+    Has the same effect as the ``-v`` command line option.
+    
+*    PYTHONINSPECT
+
+    Has the same effect as the ``-i`` command line option.
+    
+*    PYTHONDEBUG
+
+    Has the same effect as the ``-d`` command line option.
+    
+*   PYTHONUNBUFFERED
+
+    Has the same effect as the ``-u`` command line option.
+    
+*   PYTHONOPTIMIZE
+
+    Has the same effect as the ``-O`` and ``-OO`` command line options.
+    
+*   PYTHONSTARTUP
+
+    File executed on interactive startup (no default)
+    
+*    PYTHONPATH [#]_
+
+    ';'-separated list of directories prefixed to the default module search
+    path.  The result is ``sys.path``.
+    
+*    PYTHONHOME
+
+    Alternate <prefix> directory (or <prefix>;<exec_prefix>). The default 
+    module search path uses <prefix>\lib.
+
+*    PYTHONCASEOK
+
+    Ignore case in 'import' statements (Windows).
+
+It would be possible to implement options or environment variables to support
+*some* of these, if there was a particular need. Again, make your case on the
+`Mailing List`_.
+
+------------
+
+Footnotes
+=========
+
+.. [#] Or any `py2exe <http://www.py2exe.org>`_ created program.
+.. [#] In fact it is essential that PYTHONPATH is *not* used. This keeps
+   **Movable Python** separated from any standard Python installation.
+
+.. _Back to Index: index.html

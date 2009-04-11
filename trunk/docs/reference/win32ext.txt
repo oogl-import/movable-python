@@ -1,0 +1,225 @@
+restindex
+   crumb: win32
+   tags:  win32, pywin32, win32, windows
+    page-description:
+        Using Movable Python with the Pywin32 extensions, like ``win32api``.
+    /description
+/restindex
+
+=======================================
+ pywin32 Extensions and Movable Python
+=======================================
+------------------------------
+ Using the pywin32 Extensions
+------------------------------
+
+.. image:: ../images/movpy.gif
+   :height: 128
+   :width: 128
+   :alt: Python on a Stick
+   :align: center
+   :class: image
+
+.. contents::
+
+Introduction
+============
+
+.. image:: ../images/pywin32.jpg
+   :height: 356
+   :width: 472
+   :alt: pywin32 extensions.
+   :target: ../images/pywin32_big.jpg
+   :class: image
+   :align: center
+
+The `pywin32 extensions <http://sourceforge.net/projects/pywin32/>`_ [#]_
+present a particular challenge for use with **Movable Python**. This is because
+they detect the presence of ``sys.frozen`` and behave differently when working
+in a frozen environment. Unfortunately this fix *doesn't work* when used with 
+**Movable Python**.
+
+The Solution
+------------
+
+A lot of the work of getting this extension to function has already been done
+for you. However there is one more thing you *may* need to do.
+
+If you have difficulties with the Python windows extensions then try adding 
+the following line to the start of your code :
+
+    ``del sys.frozen``
+
+If you want this to be done automatically for you, you can add this line to the
+``customize.py`` `Special File <special_files.html#customize.py>`_. This
+shouldn't cause you any other problems [#]_.
+
+The main `GUI <index.html>`_ uses the win32 extension to help with
+windows 98 compatibility [#]_. It uses a slightly different trick to do this : ::
+
+    temp = sys.frozen
+    del sys.frozen
+    import win32api
+    sys.frozen = temp
+    del temp
+
+This leaves ``sys.frozen`` in place after the import has taken place.
+
+A Longer Discussion
+===================
+
+.. note::
+
+    This solution was discovered by Brian Beck who created a utility called 
+    ``fix_shortcuts.py``, for use with **Movable Python**.
+    
+    A summary of his efforts is included below, in case it is useful for any
+    other extensions that do similar magic.
+
+A **Movable Python** user, Brian Beck, has been working on a small program that 
+allows you to keep shortcuts to applications on a flash card, along with 
+Movable Python. His program ``fix_shortcuts.py`` is currently located at 
+http://exogen.case.edu/code/fix_shortcuts.py. Because windows shortcuts must
+contain an absolute path, they need to be edited every time the drive letter
+changes. With portable flash devices it is likely that the drive letter will
+change on every machine they are plugged into. ``fix_shortcuts.py`` uses the
+pywin32 extensions, by Mark Hammond, to change the location pointed to by the
+shortcuts. Most libraries can be used just by copying the whole package from
+'``site-packages``' into the '``lib/``' directory. This approach didn't work
+with pywin32, due to a peculiarity with pywin32. (Note this problem might also
+affect other libraries that dynamically adjust their ``__path__`` attribute, or
+use ``sys.frozen`` to do any other magic).
+
+A summary of the technique needed to make it work :
+
+* Copy some of the dlls into the 'lib/' directory rather than the
+  subdirectories they come in
+* add the paths from pywin32.pth into syspaths.pth
+* add the line ``del sys.frozen`` into customize.py
+
+For an explanation of why this was necessary, read the following description
+from Brian.
+
+First off it should be noted that pywin32 makes the following directories in a
+normal distribution's site-packages directory: 
+
+*    ``/isapi``
+*    ``/pythonwin``
+*    ``/pywin32_system32``
+*    ``/win32``
+*    ``/win32com``
+*    ``/win32comext``
+    
+It also adds a few files to the root of site-packages (pythoncom.py,
+PyWin32.chm, pywin32.pth).
+
+After moving the above files & directories to the appropriate location in 
+Movable Python (into the 'lib/' directory), I added the paths in pywin32.pth to
+Movable Python's syspaths.pth.
+
+Now, it won't let me import pythoncom just yet -- it complains that 'pythoncom
+isn't in frozen sys.path.'  Moving pythoncom24.dll from the pywin32_system32 
+directory to MovPy's root lib directory (to join the existing pywintypes24.dll)
+fixes this. Now it's okay to get rid of the pywin32_system32 directory (so it
+seems).
+
+Now I can import pythoncom and win32com -- but this is where the trouble
+starts!  win32com itself has modules such as shell, ifilter, internet, and
+mapi to name a few.  Instead of keeping these in its own (win32com) directory,
+it puts them in the separate win32comext directory.  To find out about this
+separate directory, it seems to consult the registry.  As I said, I can import
+win32com, but trying to import, for example, win32com.shell fails (no module
+named shell).
+
+I find this (that it fails) odd because after looking at the code, it looks
+like after failing to find the appropriate registry key it defaults to the
+'win32comext' directory, so shouldn't it find 'shell'? Also, I *do* actually
+have the entries in my registry because I have pywin32 installed (and working)
+on my standard Python distribution. So even if the paths stored in the registry
+are absolute instead of relative, it should be able to load the win32com
+extensions.
+
+*However* it doesn't find it. The reason for this is that pywin32 knows about
+``sys.frozen``. If an application is frozen (using py2exe) it expects a
+different directory structure to a normal python distribution. With Movable
+Python we had basically copied the directory structure straight from
+site-packages. Now we still need to make the above changes (moving the dlls,
+adding the relevant lines to syspaths.pth), but we *also* need to tell pywin32
+that the script wasn't built using py2exe. This means that we need to add the
+line ``del sys.frozen`` to our script before importing anything from pywin32.
+A convenient place to do this might be in the ``customize.py`` file.
+
+So why don't we just delete the sys.frozen attribute by default ? Well... the
+rub is that if Movable Python is built with the pywin32 extensions included,
+then they will need sys.frozen. For this reason it seems better to leave things
+as they are. It is *possible* that this problem might affect other modules as
+well. If you have problems importing from a module you have added into the
+'lib/' directory, then try adding ``del sys.frozen`` to your script and see if
+this makes any difference.
+
+
+Problems with win32api
+======================
+
+A user (Jim C) has also reported a problem with using ``win32api``.
+
+``import win32api`` was failing with an ``ImportError: DLL load failed`` message.
+
+After a bit of digging around he discovered that the problem was due to a conflict with pythoncom24.dll and
+pywintypes24.dll installed in the ``Windows/System32`` directory.
+
+The solution (from `here <http://dev.plone.org/archetypes/changeset/6690>`_) is simple. 
+If you do these imports (and in this order) the problem goes away. {sm;:-)}
+
+.. raw:: html
+
+    {+coloring}
+    import pywintypes
+    import pythoncom
+    import win32api
+    {-coloring}
+
+
+MFC DLLs for Pythonwin
+======================
+
+Please note the additional instructions on using the extensions with 
+py2exe/Movable Python. 
+
+From : http://starship.python.net/crew/mhammond/win32/ (dlls available for 
+download here)
+
+To run Pythonwin, you may need a copy of the Microsoft MFC DLLs.  You should
+only install these files if the install process tells you the DLL can not be
+found, or if Pythonwin fails to start due to this DLL missing.
+
+* For Python 2.3 the DLL is likely to already be installed - but if not, you
+  can use mfc42.dll (995,383 bytes)
+* For Python 2.4, the DLL is likely to not be installed - you need mfc71.dll
+  (1,060,864 bytes)
+
+Download these files and save them to your Windows System32 directory.
+Alternatively in the same directory as the script being run or elsewhere in
+windows PATH (not ``sys.path`` !).
+
+
+Notes From the py2exe Wiki
+==========================
+
+The problems with win32com are not unique to Movable Python, they apply to
+every application built using `py2exe <http://www.py2exe.org>`_. See the note
+on the `py2exe wiki <http://starship.python.net/crew/theller/moin.cgi/WinShell>`_,
+for a general solution for use with py2exe.
+
+
+--------
+
+Footnotes
+=========
+
+.. [#] These are included with **Movable Python**, except for the Pythonwin
+       IDE.
+.. [#] Unless you want to implement your own alternative behaviour when running
+       from the frozen environment.
+.. [#] It uses ``win32api.GetShortPathName`` to get the shortened path name
+       of the ``movpy.exe`` executable. 

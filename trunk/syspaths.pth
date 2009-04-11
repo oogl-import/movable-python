@@ -1,0 +1,19 @@
+# every line in here
+# (that isn't a comment)
+# should be a path to add to sys.path
+# If the path is relative, it should be relative to the 'lib/' directory 
+# that this file lives in
+
+
+D:\Python Projects\Modules Fuzzyman
+D:\Python Projects\modules in progress\rest2web\Working Copy\branches
+D:\Python Projects\modules in progress\rest2web\Working Copy\branches\configobj4
+D:\Python Projects\modules in progress\rest2web\Working Copy\branches\configobj4\pythonutils
+D:\Python Projects\modules in progress\rest2web\Working Copy\trunk
+D:\Python Projects\Modules Useful
+
+wx-2.6-msw-unicode
+pythonutils
+PIL
+win32
+win32\lib

@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <title><% title %></title>
+    <link rel="stylesheet" href="<% path_to_root %>stylesheets/movpy.css" type="text/css" />
+    <link rel="stylesheet" href="<% path_to_root %>stylesheets/voidspace_docutils2.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="http://cache.blogads.com/842841053/feed.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=<% final_encoding %>" />
+    <meta name="description" content="Movable Python - The Portable Python Distribution." />
+    <meta name="author" content="Michael Foord" />
+    <meta name="copyright" content="&copy; 2005-2006 Michael Foord, subject to BSD License" />
+    <meta name="keywords" content="Movable Python - The Portable Python Distribution,
+    movpy, movable python, portable, usb, memory key, programming, ide, programming environment, 
+    distributions, <#
+        if tags:
+            print ', '.join(tags)
+    #>" />
+</head>
+
+<body style="background: url(<% path_to_root %>images/logos/img_background.gif) top center repeat-y;">
+  <div id="wrap">
+    <div id="header-section">
+		  <a href="http://www.voidspace.org.uk/index2.shtml" title="Voidspace"><img src="<% path_to_root %>images/logos/header760.gif" alt="Voidspace"/></a>
+		  <p align="center" class="headertitle"><span style="font-size:130%">Movable Python:</span> The Portable Python Distribution</p>
+		</div>
+
+    <div id="header">
+      <ul>
+        <#
+            print_crumbs(breadcrumbs)
+        #>
+      </ul>
+    </div>
+
+    <table>
+    <tr>
+     <td><img src="images/logos/1.gif" width="1" height="1" alt="" /></td>
+     <!-- main content cell first, with rowspan=2 -->
+     <td valign="top" align="left" rowspan="2">
+     
+    <div id="middle-column">
+        <a name="startcontent" id="startcontent"></a>
+                
+            <% body %>
+
+            <div class="advert" align="center">
+                <script type="text/javascript"><!--
+                    google_ad_client = "pub-6692675105069245";
+                    google_ad_width = 468;
+                    google_ad_height = 60;
+                    google_ad_format = "468x60_as";
+                    google_ad_type = "text_image";
+                    google_ad_channel ="";
+                //--></script>
+                <script type="text/javascript"
+                  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+            </div>
+    
+            <div id="end">
+                <p><a href="#startcontent">Return to Top</a><br />
+                <small>Part of the <a href="http://www.voidspace.org.uk/python/movpy/">Movable Python Docs</a></small><br />
+                <small>Page last modified <strong><% modtime %></strong>.</small> 
+                </p>
+            </div>
+   
+    	</div></td>
+    </tr>
+    <tr>
+     <td valign="top" align="left" width="25%">
+    <div id="left-column">
+        <div id="sidie">
+            <ul>
+                <li class="left-navheader-first">
+                    <a href="<% indexpage['target'] %>" class="left-navheader">Index Page</a>
+                </li> 
+                <#
+                    minibar(sections, displayval="crumb", liststart='', listend='',
+                        intro='<li class="left-navheader">Pages</li>',
+                        subintro='<li class="left-navheader">Sub Sections</li>')
+                #>
+            </ul>
+        </div>
+        
+        <p class="sidieimg">
+            <a href="http://code.google.com/p/movable-python/">
+                Download Movable Python
+            </a>
+        </p>
+
+        <p class="sidieimg">
+            <script type="text/javascript"><!--
+                google_ad_client = "pub-6692675105069245";
+                google_ad_width = 120;
+                google_ad_height = 600;
+                google_ad_format = "120x600_as";
+                google_ad_channel ="";
+                google_color_border = "336699";
+                google_color_bg = "FFFFFF";
+                google_color_link = "0000FF";
+                google_color_url = "008000";
+                google_color_text = "000000";
+            //--></script>
+            <script type="text/javascript"
+              src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+        </p>
+        
+        <p class="sidieimg">
+            <a href="http://www.python.org">
+            <img src="<% path_to_root %>images/logos/new_python.gif" width="88"
+                height="103" border="0" alt="Powered by Python" />
+            </a>
+        </p>
+
+        <p class="sidieimg">
+            <a href="http://www.voidspace.org.uk/python/rest2web/"><img 
+            src="<% path_to_root %>images/logos/rest2web140x62.gif" width="142" height="62"
+            alt="Site Built with rest2web" /></a><br />
+        </p>
+        
+        <div class="sidieimg">
+            <p><script language="javascript" src="http://cache.blogads.com/842841053/feed.js"></script></p>
+        </div>
+        
+        
+        <p class="sidieimg">
+            <a href="http://www.webfaction.com?affiliate=fuzzyman">
+<img src="<% path_to_root %>images/logos/hosted_by_webfaction.png" width="120" height="240" alt="Hosting for an agile web" title="Hosting for an agile web" border="0"/></a>
+        </p>
+    </div>
+    </td>
+    </tr>
+</table>
+
+    <hr />
+    
+    <p class="sidieimg">
+        <a href="http://www.voidspace.org.uk/python/rest2web/"><img src="<% path_to_root %>images/logos/rest2web200x80.gif" width="200" height="80" alt="Site Built with rest2web" /></a>
+    </p>
+    
+    <p class="sidieimg">
+        <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+        </script>
+        <script type="text/javascript">
+        _uacct = "UA-203625-1";
+        urchinTracker();
+        </script>
+    </p>
+            
+    <p class="sidieimg">
+        <a href="http://www.voidspace.org.uk/python/index.shtml"><img 
+        src="<% path_to_root %>images/logos/pythonbanner.gif" width="468" height="60"
+        alt="Python on Voidspace" /></a>
+    </p>
+    
+    <div id="footer">
+       Copyright &copy; Voidspace<br />Design by <a href="http://www.fuchsiashockz.co.uk">Fuchsiashockz</a> | <a href="http://validator.w3.org/check?uri=referer" title="Validate code as W3C XHTML 1.1 Strict Compliant">W3C XHTML 1.1</a> | <a href="http://jigsaw.w3.org/css-validator/check?uri=referer" title="Validate Style Sheet as W3C CSS 2.0 Compliant">W3C CSS 2.0</a>
+    </div>
+	</div>
+</body>
+</html>

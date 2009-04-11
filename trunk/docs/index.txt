@@ -1,0 +1,110 @@
+restindex
+    crumb: Movable Python
+    tags: index, main page, movpy, mailing list, usb, memory, distributions, portable, download, purchase, programming, ide, editor, py2exe
+    output-encoding: utf8
+    template-encoding: utf8
+    link-title: Movpy Home
+    section-pages: , use_cases, introduction, distributions, movableidle, FAQ, TODO, ISSUES, changelog, CREDITS, license
+/restindex
+
+================
+ Movable Python
+================
+-------------------------------------
+The Portable Programming Environment
+-------------------------------------
+
+.. image:: images/movpy.gif
+   :height: 128
+   :width: 128
+   :alt: Python on a Stick
+   :class: image
+   :align: center
+
+.. admonition:: Quotes
+
+    *Movable Python has the potential to affect your programming 
+    life even more than Microsoft's embrace.  Yes, it's that 
+    important.*
+    
+        -- `Cameron Laird <http://groups.google.com/group/comp.lang.python/browse_frm/thread/e126e802b96a259d/5a6593124896cd90>`_
+
+    *Zope on a rope! Movable Python allows me to carry Zope3.2 and my
+    development environment everywhere I go. It's a great product, I love it*.
+
+        -- `Kevin Smith <http://blog.99hats.com>`_
+
+.. image:: images/movpy1.jpg
+   :height: 194
+   :width: 428
+   :alt: Movable Python in Action
+   :class: image
+   :align: center
+
+Movpy Docs Index
+================
+
+.. raw:: html
+
+    <div class="displaybox">
+        <#
+            print_details(default_section)
+        #>
+    </div>
+
+.. note::
+
+        Movable Python is open source. Download it from:
+        
+        * `Movable Python Project Page <http://code.google.com/p/movable-python/>`_
+
+
+Python on a Stick
+=================
+
+{emo;python} **Movable Python** is a distribution of Python for Windows that doesn't
+need to be installed. It easily fits onto a USB
+memory stick or flash drive. Python on a stick. {sm;:-)}
+
+It includes an {acro;IDE;Integrated Development Environment} and many common Python extensions, to make
+**Movable Python** a portable *Build, Test, and Run* environment. It has a nice
+{acro;GUI;Graphical User Interface} to launch programs and control its 
+behaviour.
+
+**Movable Python** is useful in the following situations:
+
+* Machines where you can't install programs.
+* Creating a sandboxed installation of Python for testing programs.
+* Where you need a portable '*Build, Test, and Run*' Python environment.
+* Having several versions of Python on the same machine for forward/backward
+  compatibility testing.
+* Easily deploying Python scripts without having to install Python.
+* Try before you buy - test Python without having to install it, including new
+  versions.
+* 'Python Runtime Environment'. '``.py``' files can be associated with movpy.
+
+For more examples of how you can use **Movable Python**, see the `Use Cases <use_cases.html>`_
+page.
+
+**Movable Python** can be used to launch scripts with several different
+interpreters from a single interface. It can detect an installed version of
+Python and you can switch between that and any Movpy interpreters you may have,
+including passing command line arguments and configuring Movpy [#]_.
+
+As well as launching Python scripts, you can use **Movable Python** as a
+graphical front end to any program. You may never need to use the command
+line again. {sm;:wink:}
+
+For a fuller introduction to **Movable Python**,
+read the `Introduction <introduction.html>`_ or ask on the
+`Mailing List <http://groups.google.com/group/movpy/>`_.
+
+For instructions on how to use **Movable Python**, you might want to visit
+`The Reference Manual <reference/index.html>`_.
+
+.. raw:: html
+
+    <p>{small;Oh, and by the way, it's <em>Movable Python</em>, not <em>Moveable Python</em>.}</p>
+
+.. [#] Features of **Movable Python** include the ability to log the output
+       of all files you run with it, and to enable `psyco <http://psyco.sourceforge.net>`_.

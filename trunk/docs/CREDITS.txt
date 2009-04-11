@@ -1,0 +1,107 @@
+restindex
+   crumb: Credits
+   tags:  credits
+/restindex
+
+=====================
+ Credits and Thanks
+=====================
+------------------------
+ The People Responsible
+------------------------
+
+.. image:: images/movpy.gif
+   :height: 128
+   :width: 128
+   :alt: Python on a Stick
+   :class: image
+   :align: center
+
+Introduction
+============
+
+This page mentions all the people who have contributed to **Movable Python**,
+and those responsible for the extra tools and packages included.
+
+Movable Python
+==============
+
+**Movable Python** is written and maintained by Michael Foord. You can see (and
+download) my other Python Projects at the
+`Voidspace Python Pages <http://www.voidspace.org.uk/python/index.shtml>`_.
+
+**Movable Python** is created using `py2exe <http://www.py2exe.org>`_. py2exe
+was written by Thomas Heller and is maintained by Jimmy Retzlaff. Thanks to
+both of them, especially for their help on the py2exe mailing list.
+
+`Bruno Thoorens <http://bruno.thoorens.free.fr>`_ and
+`Stani Michiels <http://pythonide.stani.be>`_ both contributed to
+the original **Movable Python** project. You can see a list of their
+contributions on the `Old Changelog <old_changelog.html>`_ page.
+
+Thanks to Brian Beck, for help with sussing out issues related to the pywin32
+extensions.
+
+Thanks to James Norden, for the **Movable Python** image.
+
+Thanks to John Davenport, for the silly **Python on a Stick** suggestion!
+
+Thanks to Stephen Ferg for a donation to help make Movable Python open
+source.
+
+Useful suggestions have been made by Torsten Will and JimC, thanks.
+
+Additional Tools
+================
+
+.. note::
+
+    You can find licenses for the individual packages in the ``licenses``
+    folder of the distribution.
+
+Thanks to the following people, for the additional tools included with
+**Movable Python** :
+
+Armin Rigo for `psyco <http://psyco.sourceforge.net/>`_ - the specialising
+compiler. Particularly, thanks for giving me permission to include psyco in the
+distributions.
+
+Mark Hammond for `pywin32 <http://sourceforge.net/projects/pywin32>`_ and the
+Pythonwin IDE.
+
+The `wxPython <http://www.wxpython.org>`_ team for their work. wxPython is the
+python interface to the wxWidgets graphical toolkit.
+
+Fernando Perez for `IPython <http://ipython.scipy.org/>`_. This is the most
+actively developed shell environment for Python. It allows access to the normal
+command line as well as the python environment (amongst many other goodies).
+
+Gary Bishop for the '`readline <http://sourceforge.net/projects/uncpythontools>`_
+for windows' module we include for use with IPython.
+
+Guido Van Rossum for `Python <http://www.python.org>`_. (of course)
+
+The `docutils <http://docutils.sourceforge.net>`_ team for
+{acro;ReST;ReStructured Text} and docutils - making writing documentation a lot
+easier.
+
+Thomas Heller for `ctypes <http://starship.python.net/crew/theller/ctypes/>`_.
+
+`Firedrop2 <http://www.voidspace.org.uk/python/firedrop2/>`_ is written by
+`Hans Nowak <http://zephyrfalcon.org>`_ and maintained by
+`Michael Foord <http://www.voidspace.org.uk/index.shtml>`_.
+
+`Wax <http://sourceforge.net/projects/waxgui>`_ is written by `Hans Nowak`_.
+
+`pythonutils <http://www.voidspace.org.uk/python/modules.shtml#pythonutils>`_
+is written by Michael Foord (me).
+
+Ryan Kelly for `PyEnchant <http://pyenchant.sourceforge.net/>`_.
+
+amk for `PyCrypto <http://www.amk.ca/python/code/crypto>`_.
+
+Fredrik Lundh the author of `PIL <http://www.pythonware.com/products/pil/>`_ .
+
+I don't think I've missed anyone out. {sm;:-o}
+
+For full details, see the `distributions page <distributions.html>`_.

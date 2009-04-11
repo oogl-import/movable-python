@@ -1,0 +1,283 @@
+restindex
+   crumb: Changelog
+   tags:  changelog, changes, history
+/restindex
+
+===========
+ CHANGELOG
+===========
+----------------------
+ Changes and History
+----------------------
+
+.. image:: images/movpy.gif
+   :height: 128
+   :width: 128
+   :alt: Python on a Stick
+   :class: image
+   :align: center
+
+.. contents::
+
+Introduction
+============
+
+.. image:: images/code.jpg
+   :height: 221
+   :width: 404
+   :alt: Editing Code in Movable Python
+   :class: image
+   :target: images/code_big.jpg
+   :align: center
+
+This page charts the significant changes to **Movable Python** from version
+1.0.0.
+
+To see the growth of **Movable Python** from earlier versions, see the
+`Old Changelog <old_changelog.html>`_ page.
+
+Changelog
+=========
+
+2009/4/11
+---------
+
+Movable Python released as open source. See `Movable Python Project Page <http://code.google.com/p/movable-python/>`_.
+
+2007/01/17    - Version 2.0.0 Final
+-----------------------------------
+
+Updated to wxPython 2.8.0, PIL 1.1.6, psyco 1.5.2, ctypes 1.0.1 and pyEnchant 1.3.0.
+
+Fixed bug so that the documentation will launch from the menu.
+
+
+2006/11/06    - Version 2.0.0 beta 2
+------------------------------------
+
+Thanks to Schipo and Patrick Vrijlandt for bug reports, fixes and suggestions.
+
+Updated to Python 2.4.4 and wxPython 2.7.1.
+
+Fixed bug with pylab support.
+
+Fixed problem with global name scope in interactive interpreter.
+
+Everything moved out of the default namespace and moved into a module
+called 'movpy'.
+
+The docs menu option will now use the local version if available.
+
+Logfile is now closed using 'atexit' (should be closed *after* other 'atexit' functions finish).
+
+Logfile is flushed after every write to keep it in sync.
+
+A new command line option to specify the config file directory.
+
+    ``movpyw --config ~\movpyfiles\config``
+
+(The '~' is expanded to mean the user directory.)
+
+Fix for grep in Pythonwin IDE.
+
+Fix so that 'run' works in Pythonwin. (Browse button is disabled.)
+
+This contains :
+
+* filename = the path to the script we are running (the executable in interactive mode)
+* filedir = the directory that script is in (None when in interactive mode)
+* movpydir = the directory of the movpy executable
+* curdir = the cwd from which we have been called
+* configdir = the directory where config files are accessed from
+* libdir = the 'lib' directory that modules/packages are contained in
+* xon = True if '-x' was passed
+* commandline != '' if '-c' was used
+* go_interactive = True if '-i' was set.
+* interactive = True if we are in an interactive session
+* interactive_mode is a function to enter interactive mode :
+
+    ``interactive_mode(localvars=None, globalvars=None, IPOFF=False, argv=None)``
+
+* movpyw = True if we are running under movpyw rather than movpy
+
+Included manifest file in resources.
+
+2006/09/17    - Version 2.0.0 beta 1
+-------------------------------------
+
+'Console normal' didn't work for the Python 2.5 distribution (and possibly others, although it seemed to work with Movable Python for Python 2.4). This is now fixed.
+
+Added console handling for IronPython (if the interpreter is 'ipy.exe' or 'ipyw.exe' then the appropriate one will be used when 'Console handling Normal' is selected.)
+
+The IPOFF (IPython off) option wasn't acknowledged when launching the interactive interpreter from the GUI.
+
+A bug in py2exe 0.6.5 (an incompatibility with Python 2.5) would cause the interactive interpreter to exit after an exception, and possibly other problems. This is fixed.
+
+Got rid of the error dialog in movpyw and the 'movpyw.exe.log' file.
+
+Changed logging to 'Log Mode' in main menu.
+
+Fixed configuration for IDE for Python 2.5 version.
+
+Movable Python now exits with the same exit code as any script it runs.
+
+Improvements in traceback handling.
+
+
+2006/07/18    - Version 2.0.0 alpha 1
+-------------------------------------
+
+The changes in version 2 include :
+
+* Added menus.
+
+* Added logging.
+
+* The IDE is now configurable.
+
+* Pythonwin is the default IDE and bundled with Movable Python.
+
+* Eight configurable quick launch buttons instead of 4, with a simpler configuration dialog.
+
+* Improved the command line option configuration dialog.
+
+* The interpreter used to run files can be chosen. (Including programs other than Python interpreters.)
+
+* An installed version of Python can be detected and registered as an interpreter.
+
+* You can 'choose' files as well as launching them. These can be launched by hitting enter in the entry box. Previous files can be chosen from a drop down list.
+
+* Console handling - now follows ``.py/.pyw`` but can be overridden (you can force a console for '.py' files and vice-versa).
+
+* You can configure the working directory scripts are run in.
+
+* Escape bound to exit in the main GUI.
+
+* Calltips for icons.
+
+* Bound an explanation tooltip in the quick launch and interpreter dialogs to the *labels*
+
+* A nifty new about window.
+
+* Disabled quick launch buttons without an action.
+
+* Got rid of Die option.
+
+* initial_directory is now stored relative to movpydir rather than libdir.
+
+* Quick Launch file paths are stored relative to the movpydir.
+
+* All config files moved to a config directory.
+
+* A ``__main__`` module fix, so that unittests run.
+
+* Fixed bug where ``k`` and ``koff`` in the config file would not be overridden by the ``-o`` option.
+
+* Fixed bug in save and load quick launch button configuration. (Introduced in 1.0.1)
+
+* Fixed bug in saving to and loading from "config.txt". (Introduced in 1.0.2)
+
+
+2006/05/01    - Version 1.0.2
+-----------------------------
+
+Now built with Python 2.4.3.
+
+Other updated modules include :
+
+    * pywin32 build 208
+    * ctypes 0.9.9.6
+    * wxPython 2.6.3.2
+    * Firedrop 0.2.1
+    * ConfigObj 4.3.1
+    * Wax 0.3.33
+
+* Scripts (and ``customize.py``) are now executed in a specific namespace, no
+  more movpy cruft.
+* When entering interactive mode (``movpy -``), any *additional* command line
+  arguments are passed to IPython.
+* ``imp.find_module`` has been fixed to work with modules contained in the
+  zipfile. This fix doesn't write any temporary files, but ``imp.load_module``
+  has been patched to accept a ``StringIO`` instance.
+* Built in support for *matplotlib* interactive sessions. (``movpy - pylab``)
+* Verified that ``__future__`` statements are handled correctly.
+* New look documentation and website.
+
+2006/02/13    - Version 1.0.1
+-----------------------------
+
+Added support for the ``-m`` command line option.
+
+Ignores (with warnings) the unsupported Python command line options.
+
+Error messages are now printed to ``sys.stderr``.
+
+Can now run '.pyc' and '.pyo' files.
+
+``customize.py`` now run when launching an interactive interpreter.
+
+Renamed the function to go interactive to ``interactive_mode``.
+
+New variable available in ``customize.py``. ``interactive``, this is ``True``
+if launching an interactive interpreter. This allows you to customize the
+environment differently for interactive sessions.
+
+Add the ``lib`` directory (etc) to ``sys.path`` before entering interactive
+mode. (BUGFIX)
+
+``pywin32`` extensions now import properly (even on machines that don't have them
+installed). (BUGFIX) {sm;:oops:}
+
+Added the extra files for `Firedrop2 Macros <http://www.voidspace.org.uk/python/firedrop2/macros.html>`_.
+
+Changes for Python 2.2 compatibility. Distribution for Python 2.2 built.
+
+
+2006/01/04    - Version 1.0.0
+-----------------------------
+
+The major new release. {sm;:biggrin:}
+
+Completely new method for running files. This means you can launch multiple
+programs from the GUI.
+
+Lots of new libraries and tools included. Virtually all the included tools have
+had version upgrades since the last release.
+
+The GUI does a lot more :
+
+* Version number and Python version displayed on the GUI
+* You can pass arguments to your programs
+* It remembers the last directory you ran a program from
+* You choose if launched programs have a console box or not
+* You can configure the options programs are run with
+* You can edit the default options
+* Four configurable Quick Launch buttons
+* You can launch SPE from the GUI
+* You can launch the documentation (About)
+* You can launch an interpreter console
+* You can close the GUI without *having* to launch a program or go to the
+  interpreter
+
+The following (command line) options are new :
+
+* ``f``  - run script in it's directory
+* ``b``  - pause after running script
+* ``o``  - override default options
+* ``die`` - get rid of GUI after running
+* ``k`` - run with console from movpyw
+* ``koff`` - run without console from movpy
+
+Complete documentation rewrite.
+
+Docs are now built with `rest2web <http://www.voidspace.org.uk/python/rest2web>`_.
+
+``movpyw.exe`` is now included in the Python 2.2 distribution.
+
+Bug fixed where first command line argument to your program was always lost.
+
+Bug fixed so that ``IPOFF`` actually works now.
+
+Bug fixed so that ``-p`` in ``config.txt`` now works. {sm;:oops:}
+
+Lots of other minor changes and improvements. {sm;:-)}

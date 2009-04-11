@@ -1,0 +1,11 @@
+# every line in here
+# (that isn't a comment)
+# should be a path to add to sys.path
+# If the path is relative, it should be relative to the 'lib/' directory 
+# that this file lives in
+
+pythonutils
+PIL
+win32
+win32\lib
+Pythonwin
