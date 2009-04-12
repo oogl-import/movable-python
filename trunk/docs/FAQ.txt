@@ -70,14 +70,14 @@ of Python installed on the same machine.
 The answer is *usually* (but not always) **Yes**. See `Customising Your Distribution`_
 for details on adding your own extension modules to your distribution.
 
-If you do have problems, ask on the `Mailing List`_.
+If you do have problems, ask on the `Mailing List <http://groups.google.com/group/movpy/>`_.
 
 6) How Compatible With Normal Python is it ?
 ============================================
 
 **Movable Python** effectively has a normal Python interpreter embedded in it,
 so the answer is *very* compatible. For an example of a large and complex
-program that runs under **Movable Python**, see SPE_ the Python editor. A
+program that runs under **Movable Python**, see `SPE <http://developer.berlios.de/projects/python/>`_ the Python editor. A
 `Movable Python user <http://blog.99hats.com/>`_ also reports running Zope
 3.2 with **Movable Python**.  {sm;:-)}
 
