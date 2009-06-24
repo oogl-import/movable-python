@@ -3,6 +3,7 @@
 
 ##################################################
 
+import datetime
 import os
 import sys
 from StringIO import StringIO
@@ -11,7 +12,7 @@ import time
 from pathutils import walkfiles, walkdirs, relpath, splitall, readlines
 
 sys.path.append('files')
-sys.path.insert(0, r'C:\Python24\Lib\idlelib')
+sys.path.insert(0, r'C:\Python25\Lib\idlelib')
 
 # set current directory to the directory this script is in
 os.chdir(os.path.abspath(os.path.dirname(sys.argv[0])))
@@ -39,10 +40,9 @@ compress = 0
 
 ############################
 
-version_num = '0.1.0'
-version_date = '7th October 2006'
-versionstring = 'Movable IDLE. Version %s, %s.' % (version_num,
-    version_date)
+version_num = '0.2.0'
+version_date = datetime.date.today().strftime('%d %B %Y')
+versionstring = 'Movable IDLE. Version %s, %s.' % (version_num, version_date)
 
 #
 # if py2exe crashes, try setting this to False
@@ -55,8 +55,8 @@ extended_options = True
 # FIXME: What about '.pyd' ? (you can import from some, but attempting to
 #   import from others causes core dumps)
 module_extensions = ['.py', '.pyc', '.pyo',]
-outfile =r'C:\Python24\Lib\idlelib\MovableIdleConsole.py'
-outfile_win = r'C:\Python24\Lib\idlelib\MovableIdle.pyw'
+outfile =r'C:\Python25\Lib\idlelib\MovableIdleConsole.py'
+outfile_win = r'C:\Python25\Lib\idlelib\MovableIdle.pyw'
 mainfile = 'modules/MovableIdle.py'
 pyversion = float(sys.version[:3])
 
@@ -92,7 +92,7 @@ def remcom(fname):
     return [line.strip() for line in readlines(fname) if line.strip()
         and not line.strip().startswith('#')]
 
-#####################################
+#####################################6
 # support functions that actually do the work for PyDistFreeze
 
 def getimports(libdir, basepackage=''):

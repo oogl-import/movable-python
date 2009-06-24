@@ -54,6 +54,6 @@ except ImportError:
                 os.environ['PYTHONPATH'] = pypath + ':' + idledir
             else:
                 os.environ['PYTHONPATH'] = idledir
-        PyShell.main(__version__)
+        PyShell.main()
 else:
-    idlelib.PyShell.main(__version__)
+    idlelib.PyShell.main()
